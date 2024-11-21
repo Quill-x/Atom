@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const MAXSPEED = 700
 const ACCELERATION = 500
-const FRICTION = 200
+const FRICTION = 150
 var maxspeed = MAXSPEED
 
 func _physics_process(delta: float) -> void:

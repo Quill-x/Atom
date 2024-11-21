@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1j7xu4vppm2"
-path="res://.godot/imported/placeholderdot.png-5f99e31c406821e7724faae1c403aa9b.ctex"
+uid="uid://bve0o4kbmidlm"
+path="res://.godot/imported/PlaceholderEnemy.png-3878ceec3abdd4433c2fa5504b1dbb43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderdot.png"
-dest_files=["res://.godot/imported/placeholderdot.png-5f99e31c406821e7724faae1c403aa9b.ctex"]
+source_file="res://images/PlaceholderEnemy.png"
+dest_files=["res://.godot/imported/PlaceholderEnemy.png-3878ceec3abdd4433c2fa5504b1dbb43.ctex"]
 
 [params]
 

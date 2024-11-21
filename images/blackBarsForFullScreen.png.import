@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bve0o4kbmidlm"
-path="res://.godot/imported/PlaceholderEnemy.png-559b42ede7322382b7b2e402bbeb20b8.ctex"
+uid="uid://bq1an6pgy4v6i"
+path="res://.godot/imported/blackBarsForFullScreen.png-996ed90f15597d6bef20e8c9c4ef5383.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlaceholderEnemy.png"
-dest_files=["res://.godot/imported/PlaceholderEnemy.png-559b42ede7322382b7b2e402bbeb20b8.ctex"]
+source_file="res://images/blackBarsForFullScreen.png"
+dest_files=["res://.godot/imported/blackBarsForFullScreen.png-996ed90f15597d6bef20e8c9c4ef5383.ctex"]
 
 [params]
 

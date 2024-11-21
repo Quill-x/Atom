@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq1an6pgy4v6i"
-path="res://.godot/imported/blackBarsForFullScreen.png-b0bd2fba74207ea2e13647e18de49423.ctex"
+uid="uid://p3yhb6sl3iyc"
+path="res://.godot/imported/player.png-163753890810fa89776ed0f872fd9df1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blackBarsForFullScreen.png"
-dest_files=["res://.godot/imported/blackBarsForFullScreen.png-b0bd2fba74207ea2e13647e18de49423.ctex"]
+source_file="res://images/player.png"
+dest_files=["res://.godot/imported/player.png-163753890810fa89776ed0f872fd9df1.ctex"]
 
 [params]
 
