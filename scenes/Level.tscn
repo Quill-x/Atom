@@ -22,7 +22,8 @@ texture = ExtResource("1_1mcdm")
 position = Vector2(-457, -17)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-580, -325)
+position = Vector2(-856, -490)
+scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-433.5, 270)
@@ -42,11 +43,9 @@ position = Vector2(628, 876)
 scale = Vector2(24.92, 1)
 shape = SubResource("RectangleShape2D_tpb66")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="BlackBarsForFullScreen" type="Sprite2D" parent="."]
-position = Vector2(-1286, -55)
-scale = Vector2(4.68, 13.48)
+position = Vector2(-1923, -73)
+scale = Vector2(7.02, 20.22)
 texture = ExtResource("2_agv44")
 
 [node name="BlackBarsForFullScreen2" type="Sprite2D" parent="BlackBarsForFullScreen"]
@@ -64,3 +63,6 @@ position = Vector2(267.735, 68.3234)
 rotation = 1.5708
 scale = Vector2(0.347181, 6.34188)
 texture = ExtResource("2_agv44")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

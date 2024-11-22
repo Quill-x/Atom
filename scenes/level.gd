@@ -3,7 +3,7 @@ extends Node2D
 const ENEMY_SPAWN_TIMER = .5
 
 
-var scene = preload("res://scenes/placeholder_enemy.tscn")
+var scene = preload("res://scenes/deuteron.tscn")
 var instance = scene.instantiate()
 
 var spawn_timer = ENEMY_SPAWN_TIMER
