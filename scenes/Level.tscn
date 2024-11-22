@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=7 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Texture2D" uid="uid://bob4jmvuiqg4y" path="res://images/epicPlaceholderBackground.png" id="1_1mcdm"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
-[ext_resource type="PackedScene" uid="uid://ds3gkib2xtte8" path="res://scenes/placeholder_enemy.tscn" id="2_5gy1o"]
 [ext_resource type="Texture2D" uid="uid://bq1an6pgy4v6i" path="res://images/blackBarsForFullScreen.png" id="2_agv44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
@@ -18,9 +17,6 @@ script = ExtResource("1_ue7x2")
 [node name="EpicPlaceholderBackground" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("1_1mcdm")
-
-[node name="placeholderEnemy" parent="." instance=ExtResource("2_5gy1o")]
-position = Vector2(1012, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_yqdih")]
 position = Vector2(-457, -17)

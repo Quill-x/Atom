@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://df3y3vmxrwya6"]
+[gd_scene load_steps=10 format=3 uid="uid://df3y3vmxrwya6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_xwvgi"]
 [ext_resource type="Texture2D" uid="uid://p3yhb6sl3iyc" path="res://images/player.png" id="2_bpjtl"]
 [ext_resource type="AudioStream" uid="uid://0qsb4p3di5or" path="res://audio/hit.ogg" id="3_hb4pw"]
+[ext_resource type="Script" path="res://scenes/Score.gd" id="4_35h1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qihoo"]
 size = Vector2(52, 52)
@@ -56,3 +57,18 @@ shape = SubResource("CircleShape2D_wyeqg")
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hb4pw")
 max_polyphony = 5
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 67.0
+offset_bottom = -40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Score: Test"
+horizontal_alignment = 1
+script = ExtResource("4_35h1i")

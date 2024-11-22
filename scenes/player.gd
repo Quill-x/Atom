@@ -7,6 +7,7 @@ const FRICTION = 150
 const HIT_VELOCITY = 6000
 const HIT_SLOWDOWN_RATE = 0.8 # Slowdown factor per frame when in "Hit" state (e.g., 0.95 is a 5% per frame slowdown)
 
+var score = 0
 var rotational_velocity = 0
 var maxspeed = MAXSPEED
 var state = "Normal"
@@ -19,6 +20,8 @@ func get_hit(pos):
 	$Hit.pitch_scale = RandomNumberGenerator.new().randf_range(0.7, .9)
 	print($Hit.pitch_scale)
 	$Hit.play()
+	
+	$ScoreLabel.decreaseScore(5)
 	
 	var direction = (position - pos).normalized()
 	velocity = direction * HIT_VELOCITY
@@ -75,7 +78,6 @@ func _physics_process(delta: float) -> void:
 
 	$AnimatedSprite2D.scale.y = 2 - abs(velocity.x / (MAXSPEED * 4)) + abs(velocity.y / (MAXSPEED * 5))
 	$AnimatedSprite2D.scale.x = 2 - abs(velocity.y / (MAXSPEED * 4)) + abs(velocity.x / (MAXSPEED * 8))
-
 	rotation += rotational_velocity
 	
 	move_and_slide()
