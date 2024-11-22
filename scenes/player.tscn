@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://df3y3vmxrwya6"]
+[gd_scene load_steps=9 format=3 uid="uid://df3y3vmxrwya6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_xwvgi"]
-[ext_resource type="Texture2D" uid="uid://p3yhb6sl3iyc" path="res://player.png" id="2_bpjtl"]
+[ext_resource type="Texture2D" uid="uid://p3yhb6sl3iyc" path="res://images/player.png" id="2_bpjtl"]
+[ext_resource type="AudioStream" uid="uid://0qsb4p3di5or" path="res://audio/hit.ogg" id="3_hb4pw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qihoo"]
 size = Vector2(52, 52)
@@ -28,6 +29,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyeqg"]
+radius = 38.1182
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-449, -96)
 script = ExtResource("1_xwvgi")
@@ -42,3 +46,12 @@ sprite_frames = SubResource("SpriteFrames_wljmg")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.909135
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 14)
+shape = SubResource("CircleShape2D_wyeqg")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hb4pw")

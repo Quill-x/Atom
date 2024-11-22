@@ -25,3 +25,5 @@ shape = SubResource("CircleShape2D_f2215")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_wvhmr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
