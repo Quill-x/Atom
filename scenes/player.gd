@@ -44,9 +44,6 @@ func _physics_process(delta: float) -> void:
 	if velocity.length() > maxspeed:
 		velocity = velocity.normalized() * maxspeed
 
-	if abs(velocity.x) > 0 and abs(velocity.y) > 0:
-		velocity = velocity.normalized() * maxspeed
-
 	$AnimatedSprite2D.scale.y = 2 - abs(velocity.x / (MAXSPEED * 4)) + abs(velocity.y / (MAXSPEED * 5))
 	$AnimatedSprite2D.scale.x = 2 - abs(velocity.y / (MAXSPEED * 4)) + abs(velocity.x / (MAXSPEED * 8))
 
