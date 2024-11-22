@@ -4,8 +4,8 @@ class_name Player
 const MAXSPEED = 700
 const ACCELERATION = 500
 const FRICTION = 150
-const HIT_VELOCITY = 5000
-const HIT_SLOWDOWN_RATE = 0.8  # Slowdown factor per frame when in "Hit" state (e.g., 0.95 is a 5% per frame slowdown)
+const HIT_VELOCITY = 6000
+const HIT_SLOWDOWN_RATE = 0.8 # Slowdown factor per frame when in "Hit" state (e.g., 0.95 is a 5% per frame slowdown)
 
 var rotational_velocity = 0
 var maxspeed = MAXSPEED
@@ -15,14 +15,18 @@ func get_hit(pos):
 	state = "Hit"
 	velocity.x = 0
 	velocity.y = 0
+	
 	$Hit.pitch_scale = RandomNumberGenerator.new().randf_range(0.7, .9)
 	print($Hit.pitch_scale)
 	$Hit.play()
+	
 	var direction = (position - pos).normalized()
 	velocity = direction * HIT_VELOCITY
 	rotational_velocity = 200
+	
 	var timer = await get_tree().create_timer(0.2).timeout
 	state = "Normal"
+	
 	rotational_velocity = 0
 	rotation = 0
 
