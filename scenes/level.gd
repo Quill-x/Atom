@@ -1,6 +1,6 @@
 extends Node2D
 
-const ENEMY_SPAWN_TIMER = .5
+var ENEMY_SPAWN_TIMER = .5
 
 
 var scene = preload("res://scenes/deuteron.tscn")
@@ -13,4 +13,4 @@ func _process(delta):
 	if spawn_timer <= 0:
 		add_child(instance)
 		instance = scene.instantiate()
-		spawn_timer = ENEMY_SPAWN_TIMER
+		spawn_timer = RandomNumberGenerator.new().randf_range(0.01, 1.5)

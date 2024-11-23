@@ -1,7 +1,66 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmm76w0vn7p5x"]
+[gd_scene load_steps=19 format=3 uid="uid://bmm76w0vn7p5x"]
 
 [ext_resource type="Script" path="res://scenes/deuteron.gd" id="1_7cfuk"]
-[ext_resource type="Texture2D" uid="uid://b44jq3xhbwq20" path="res://images/deuteron.png" id="1_pek4p"]
+[ext_resource type="Texture2D" uid="uid://bgyn67cf1m534" path="res://images/deuteronBase.png" id="2_2n353"]
+[ext_resource type="Texture2D" uid="uid://yvt1n3e0ssw5" path="res://images/deuteronFace.png" id="3_jk7iu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_441pb"]
+atlas = ExtResource("2_2n353")
+region = Rect2(0, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alybk"]
+atlas = ExtResource("2_2n353")
+region = Rect2(67, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb8os"]
+atlas = ExtResource("2_2n353")
+region = Rect2(134, 0, 67, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kp4bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_441pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alybk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb8os")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqqxt"]
+atlas = ExtResource("3_jk7iu")
+region = Rect2(0, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xegn7"]
+atlas = ExtResource("3_jk7iu")
+region = Rect2(67, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg2lx"]
+atlas = ExtResource("3_jk7iu")
+region = Rect2(134, 0, 67, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jupbp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqqxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xegn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg2lx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsl2w"]
 radius = 10.5119
@@ -14,6 +73,21 @@ radius = 25.02
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqlmp"]
 radius = 23.0
+
+[sub_resource type="Animation" id="Animation_ddau2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ov8ho"]
 resource_name = "spin"
@@ -31,21 +105,6 @@ tracks/0/keys = {
 "values": [0.0, 3.14159, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_ddau2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2e041"]
 _data = {
 "RESET": SubResource("Animation_ddau2"),
@@ -53,14 +112,24 @@ _data = {
 }
 
 [node name="Deuteron" type="CharacterBody2D"]
-rotation = 5.24892
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_7cfuk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Base" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_pek4p")
+sprite_frames = SubResource("SpriteFrames_kp4bt")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.953192
+
+[node name="Face" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jupbp")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0797608
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(2, 2)
@@ -76,7 +145,6 @@ shape = SubResource("CircleShape2D_oobay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-25, -4)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_q3752")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
