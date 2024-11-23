@@ -19,33 +19,33 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_1mcdm")
 
 [node name="Player" parent="." instance=ExtResource("1_yqdih")]
-position = Vector2(-457, -17)
+position = Vector2(-126, -21)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-856, -490)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-667, -262)
+scale = Vector2(1.08, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-433.5, 270)
+position = Vector2(-400, 241)
 shape = SubResource("RectangleShape2D_eqigd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1579, 309)
+position = Vector2(1482.41, 320)
 shape = SubResource("RectangleShape2D_eqigd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(600.2, -228)
+position = Vector2(576.852, -317)
 scale = Vector2(24.92, 1)
 shape = SubResource("RectangleShape2D_tpb66")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(628, 876)
+position = Vector2(595.37, 787)
 scale = Vector2(24.92, 1)
 shape = SubResource("RectangleShape2D_tpb66")
 
 [node name="BlackBarsForFullScreen" type="Sprite2D" parent="."]
-position = Vector2(-1923, -73)
-scale = Vector2(7.02, 20.22)
+position = Vector2(-1908, -76)
+scale = Vector2(6.97537, 20.0353)
 texture = ExtResource("2_agv44")
 
 [node name="BlackBarsForFullScreen2" type="Sprite2D" parent="BlackBarsForFullScreen"]
@@ -65,4 +65,4 @@ scale = Vector2(0.347181, 6.34188)
 texture = ExtResource("2_agv44")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
+position = Vector2(-82, -33)

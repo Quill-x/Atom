@@ -8,7 +8,7 @@ var rotation_timer = ROTATION_TIME
 
 func _ready():
 	position.x = 1012
-	position.y = RandomNumberGenerator.new().randf_range(-500, 500)
+	position.y = RandomNumberGenerator.new().randf_range(-550, 500)
 
 func _physics_process(delta: float) -> void:
 	rotation_timer -= delta
