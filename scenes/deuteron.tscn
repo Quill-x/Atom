@@ -121,7 +121,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kp4bt")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.953192
+frame_progress = 0.909643
 
 [node name="Face" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 7)
@@ -129,7 +129,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jupbp")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0797608
+frame_progress = 0.0362124
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(2, 2)

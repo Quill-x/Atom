@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj2xu48ecl6n1"]
+
+[ext_resource type="Script" path="res://scenes/electron.gd" id="1_yiqh2"]
+[ext_resource type="Texture2D" uid="uid://cugxo4jywecct" path="res://images/electron.png" id="2_dvlqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t33t3"]
+atlas = ExtResource("2_dvlqk")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxja3"]
+atlas = ExtResource("2_dvlqk")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qcww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t33t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxja3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66dqy"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk7hk"]
+radius = 16.1245
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0jkl"]
+radius = 564.001
+
+[node name="Electron" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_yiqh2")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0qcww")
+autoplay = "default"
+frame_progress = 0.401008
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_66dqy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_dk7hk")
+
+[node name="Chase" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chase"]
+shape = SubResource("CircleShape2D_m0jkl")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Chase" to="." method="_on_chase_area_entered"]
+[connection signal="area_exited" from="Chase" to="." method="_on_chase_area_exited"]
