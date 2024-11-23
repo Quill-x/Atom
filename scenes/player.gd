@@ -5,7 +5,7 @@ const MAXSPEED = 700
 const ACCELERATION = 500
 const FRICTION = 150
 const HIT_VELOCITY = 6000
-const HIT_SLOWDOWN_RATE = 0.8 # Slowdown factor per frame when in "Hit" state (e.g., 0.95 is a 5% per frame slowdown)
+const HIT_SLOWDOWN_RATE = 0.8 
 
 var score = 0
 var rotational_velocity = 0
@@ -35,7 +35,6 @@ func get_hit(pos):
 
 func _physics_process(delta: float) -> void:
 	if state == "Normal":
-		# Normal movement logic
 		if Input.is_action_pressed("Left"):
 			velocity.x -= ACCELERATION
 		if Input.is_action_pressed("Right"):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj2xu48ecl6n1"]
+[gd_scene load_steps=16 format=3 uid="uid://dj2xu48ecl6n1"]
 
 [ext_resource type="Script" path="res://scenes/electron.gd" id="1_yiqh2"]
 [ext_resource type="Texture2D" uid="uid://cugxo4jywecct" path="res://images/electron.png" id="2_dvlqk"]
+[ext_resource type="Texture2D" uid="uid://bxedst0oq3n64" path="res://images/magnet.png" id="3_e61xx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t33t3"]
 atlas = ExtResource("2_dvlqk")
@@ -34,6 +35,65 @@ radius = 16.1245
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0jkl"]
 radius = 564.001
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e50uu"]
+atlas = ExtResource("3_e61xx")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a05s"]
+atlas = ExtResource("3_e61xx")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yenv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e50uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a05s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_yuuyt"]
+resource_name = "appear"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.4, 2),
+"transitions": PackedFloat32Array(-3.605, 2, -3.73213, -3.605),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 2), Vector2(1.5, 1.5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hs8r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8v6ip"]
+_data = {
+"RESET": SubResource("Animation_hs8r4"),
+"appear": SubResource("Animation_yuuyt")
+}
+
 [node name="Electron" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
@@ -58,6 +118,18 @@ shape = SubResource("CircleShape2D_dk7hk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chase"]
 shape = SubResource("CircleShape2D_m0jkl")
+
+[node name="Magnet" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -60)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8yenv")
+autoplay = "default"
+frame_progress = 0.0576962
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Magnet"]
+libraries = {
+"": SubResource("AnimationLibrary_8v6ip")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="Chase" to="." method="_on_chase_area_entered"]

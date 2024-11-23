@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Electron
 
-const SPEED = 400
+const SPEED = 300
 const HOMING_TIME = 300
 const ROTATIONAL_SPEED = 100
 
@@ -14,7 +14,10 @@ var timer = HOMING_TIME
 var current_rotation = 0
 
 func _ready():
+	position.x = 1012
+	position.y = RandomNumberGenerator.new().randf_range(-550, 500)
 	velocity.x = -SPEED
+	$Magnet.scale.x = 0
 
 func _on_area_entered(area):
 	if area.get_parent() is Player:
@@ -25,6 +28,8 @@ func _on_chase_area_entered(area):
 	if area.get_parent() is Player:
 		State = "Chase"
 		player = area.get_parent()
+		if timer != 0:
+			$Magnet/AnimationPlayer.play("appear")
 	
 func _on_chase_area_exited(area):
 	if area.get_parent() is Player:
@@ -33,6 +38,7 @@ func _on_chase_area_exited(area):
 		
 
 func _physics_process(delta):
+	Engine.set_physics_ticks_per_second(DisplayServer.screen_get_refresh_rate())
 	if State == "Normal":
 		pass
 	elif State == "Chase" and timer > 0:
