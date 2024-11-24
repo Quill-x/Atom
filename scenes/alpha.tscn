@@ -18,6 +18,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_u2e52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_mmau6"]
 resource_name = "spin"
 length = 0.8
@@ -35,21 +50,6 @@ tracks/0/keys = {
 "values": [0.0, 1.5708, 3.14159, 3.92699, 4.71239]
 }
 
-[sub_resource type="Animation" id="Animation_u2e52"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ogki5"]
 _data = {
 "RESET": SubResource("Animation_u2e52"),
@@ -61,21 +61,6 @@ radius = 46.0977
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o1oqo"]
 radius = 53.1507
-
-[sub_resource type="Animation" id="Animation_yccg8"]
-resource_name = "squish"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(0.210224, 1, 0.267943),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(3, 1), Vector2(2, 2)]
-}
 
 [sub_resource type="Animation" id="Animation_rndx5"]
 length = 0.001
@@ -90,6 +75,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_yccg8"]
+resource_name = "squish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.210224, 1, 0.267943),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(3, 1), Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sipbe"]
@@ -127,3 +127,5 @@ libraries = {
 "": SubResource("AnimationLibrary_sipbe")
 }
 speed_scale = 2.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

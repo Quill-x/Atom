@@ -21,6 +21,6 @@ func _physics_process(delta: float) -> void:
 	if position.x <= -1200:
 		queue_free()
 
-func _on_area_entered(area):
+func _on_area_2d_area_entered(area):
 	if area.get_parent() is Player:
 		area.get_parent().get_hit(position)
