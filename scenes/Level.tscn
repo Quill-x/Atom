@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=10 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Texture2D" uid="uid://bob4jmvuiqg4y" path="res://images/epicPlaceholderBackground.png" id="1_1mcdm"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq1an6pgy4v6i" path="res://images/blackBarsForFullScreen.png" id="2_agv44"]
 [ext_resource type="Script" path="res://scenes/wall_detection.gd" id="4_0mxqv"]
 [ext_resource type="AudioStream" uid="uid://c75ahyx5egw0p" path="res://audio/funky_battle.ogg" id="5_h1f6n"]
+[ext_resource type="Script" path="res://scenes/timer_text.gd" id="7_kuq0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
@@ -19,6 +20,16 @@ script = ExtResource("1_ue7x2")
 [node name="EpicPlaceholderBackground" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("1_1mcdm")
+
+[node name="TimerText" type="Label" parent="."]
+offset_left = -1038.0
+offset_top = -566.0
+offset_right = -932.0
+offset_bottom = -511.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Time:"
+script = ExtResource("7_kuq0e")
 
 [node name="Player" parent="." instance=ExtResource("1_yqdih")]
 position = Vector2(-902, -5)
