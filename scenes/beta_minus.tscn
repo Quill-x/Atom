@@ -1,0 +1,274 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4dxg0sktk4j7"]
+
+[ext_resource type="Script" path="res://scenes/beta_minus.gd" id="1_nhkdp"]
+[ext_resource type="Script" path="res://scenes/neutron.gd" id="1_u6htj"]
+[ext_resource type="Texture2D" uid="uid://b34p20n104lqh" path="res://images/neutron.png" id="2_6ybuh"]
+[ext_resource type="Texture2D" uid="uid://bljckemtyyrn0" path="res://images/betaminus.png" id="3_j4rll"]
+[ext_resource type="Texture2D" uid="uid://cr78g2bbgprv" path="res://images/betaminusSymbol.png" id="5_d7ogd"]
+
+[sub_resource type="Animation" id="Animation_riekb"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Symbol:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Symbol:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Symbol:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_h6lb4"]
+resource_name = "merge"
+length = 3.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Neutron:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(4.14106, 1),
+"update": 0,
+"values": [Vector2(-1500, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Nucleus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(4.14106, 1),
+"update": 0,
+"values": [Vector2(1500, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Nucleus/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"stay"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Neutron:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Nucleus:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.53333, 2.76667),
+"transitions": PackedFloat32Array(1, 1, 0.258816, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(4, 4), Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Symbol:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Symbol:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.03333, 3.23333, 3.53333, 3.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 4.59479),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Symbol:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.03333, 3.23333),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b67db"]
+_data = {
+"RESET": SubResource("Animation_riekb"),
+"merge": SubResource("Animation_h6lb4")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlry2"]
+atlas = ExtResource("2_6ybuh")
+region = Rect2(0, 0, 43, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58iu0"]
+atlas = ExtResource("2_6ybuh")
+region = Rect2(43, 0, 43, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cq7ua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlry2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58iu0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dyl2"]
+radius = 21.2132
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pkcv"]
+radius = 25.4951
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1m3d"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(0, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdy4n"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(96, 0, 96, 82)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lghvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1m3d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdy4n")
+}],
+"loop": true,
+"name": &"stay",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g58qg"]
+radius = 23.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tdh8"]
+radius = 28.5175
+
+[node name="BetaMinus" type="CharacterBody2D"]
+script = ExtResource("1_nhkdp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b67db")
+}
+autoplay = "merge"
+speed_scale = 0.6
+
+[node name="Neutron" type="CharacterBody2D" parent="."]
+position = Vector2(-1300, 0)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_u6htj")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Neutron"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cq7ua")
+autoplay = "default"
+frame_progress = 0.415178
+
+[node name="Area2D" type="Area2D" parent="Neutron"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neutron/Area2D"]
+position = Vector2(14, 0)
+shape = SubResource("CircleShape2D_1dyl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neutron"]
+position = Vector2(14, 1)
+shape = SubResource("CircleShape2D_7pkcv")
+
+[node name="Nucleus" type="CharacterBody2D" parent="."]
+position = Vector2(1300, 0)
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_u6htj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Nucleus"]
+sprite_frames = SubResource("SpriteFrames_lghvv")
+autoplay = "default"
+offset = Vector2(5.925, -1.515)
+
+[node name="Area2D" type="Area2D" parent="Nucleus"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nucleus/Area2D"]
+position = Vector2(14.5, -2)
+shape = SubResource("CircleShape2D_g58qg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nucleus"]
+position = Vector2(14, -2)
+shape = SubResource("CircleShape2D_6tdh8")
+
+[node name="Symbol" type="Sprite2D" parent="."]
+position = Vector2(30, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_d7ogd")
+
+[connection signal="area_entered" from="Neutron/Area2D" to="Neutron" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Nucleus/Area2D" to="Nucleus" method="_on_area_2d_area_entered"]

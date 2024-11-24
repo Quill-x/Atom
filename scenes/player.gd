@@ -4,8 +4,8 @@ class_name Player
 const MAXSPEED = 700
 const ACCELERATION = 500
 const FRICTION = 150
-const HIT_VELOCITY = 6000
-const HIT_SLOWDOWN_RATE = 0.8 
+const HIT_VELOCITY = 3000
+const HIT_SLOWDOWN_RATE = 0.9 
 
 var score = 0
 var rotational_velocity = 0

@@ -14,8 +14,9 @@ var timer = HOMING_TIME
 var current_rotation = 0
 
 func _ready():
-	position.x = 1012
-	position.y = RandomNumberGenerator.new().randf_range(-550, 500)
+	print(position)
+	#position.x = 1012
+	#position.y = RandomNumberGenerator.new().randf_range(-550, 500)
 	velocity.x = -SPEED
 	$Magnet.scale.x = 0
 
@@ -34,7 +35,7 @@ func _on_chase_area_entered(area):
 func _on_chase_area_exited(area):
 	if area.get_parent() is Player:
 		State = "Normal"
-		timer = 0
+		#timer = 0
 		
 
 func _physics_process(delta):
