@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=10 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Texture2D" uid="uid://bob4jmvuiqg4y" path="res://images/epicPlaceholderBackground.png" id="1_1mcdm"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
 [ext_resource type="Texture2D" uid="uid://bq1an6pgy4v6i" path="res://images/blackBarsForFullScreen.png" id="2_agv44"]
+[ext_resource type="Script" path="res://scenes/wall_detection.gd" id="4_0mxqv"]
 [ext_resource type="AudioStream" uid="uid://c75ahyx5egw0p" path="res://audio/funky_battle.ogg" id="5_h1f6n"]
+[ext_resource type="PackedScene" uid="uid://di2ydx8nbw1um" path="res://scenes/alpha.tscn" id="7_xge5m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpb66"]
-size = Vector2(80.7223, 20)
+size = Vector2(159.186, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ue7x2")
@@ -22,24 +24,39 @@ texture = ExtResource("1_1mcdm")
 [node name="Player" parent="." instance=ExtResource("1_yqdih")]
 position = Vector2(-902, -5)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Hitboxes" type="StaticBody2D" parent="."]
 position = Vector2(-667, -262)
 scale = Vector2(1.08, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes"]
 position = Vector2(-400, 241)
 shape = SubResource("RectangleShape2D_eqigd")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitboxes"]
 position = Vector2(1482.41, 320)
 shape = SubResource("RectangleShape2D_eqigd")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitboxes"]
 position = Vector2(576.852, -317)
 scale = Vector2(24.92, 1)
 shape = SubResource("RectangleShape2D_tpb66")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hitboxes"]
+position = Vector2(595.37, 787)
+scale = Vector2(24.92, 1)
+shape = SubResource("RectangleShape2D_tpb66")
+
+[node name="Wall Detection" type="Area2D" parent="."]
+position = Vector2(-667, -262)
+scale = Vector2(1.08, 1)
+script = ExtResource("4_0mxqv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall Detection"]
+position = Vector2(1554.51, -317)
+scale = Vector2(24.92, 1)
+shape = SubResource("RectangleShape2D_tpb66")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall Detection"]
 position = Vector2(595.37, 787)
 scale = Vector2(24.92, 1)
 shape = SubResource("RectangleShape2D_tpb66")
@@ -72,3 +89,7 @@ position = Vector2(-82, -33)
 stream = ExtResource("5_h1f6n")
 volume_db = -8.0
 autoplay = true
+
+[node name="alpha" parent="." instance=ExtResource("7_xge5m")]
+
+[connection signal="area_entered" from="Wall Detection" to="Wall Detection" method="_on_area_entered"]

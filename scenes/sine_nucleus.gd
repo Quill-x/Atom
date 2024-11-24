@@ -9,9 +9,8 @@ var sineTime = 0
 func _physics_process(delta):
 	if position.x <= -1200:
 		queue_free()
-	velocity.y = -sin(sineTime)*400
+	velocity.y = -sin(sineTime)*100
 	sineTime += .05
-	print(velocity.y)
 	velocity.x -= ACCELERATION
 	velocity.x = clamp(velocity.x,-MAX_SPEED,INF)
 	move_and_slide()

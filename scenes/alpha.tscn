@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://di2ydx8nbw1um"]
+
+[ext_resource type="Script" path="res://scenes/alpha.gd" id="1_6y45b"]
+[ext_resource type="Texture2D" uid="uid://d3ckyq0mi7whp" path="res://images/alpha.png" id="2_xkyle"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ang5o"]
+atlas = ExtResource("2_xkyle")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkt1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ang5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_mmau6"]
+resource_name = "spin"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(0, 0, 1, 1, 0),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 3.92699, 4.71239]
+}
+
+[sub_resource type="Animation" id="Animation_u2e52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ogki5"]
+_data = {
+"RESET": SubResource("Animation_u2e52"),
+"spin": SubResource("Animation_mmau6")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhe2o"]
+radius = 46.0977
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1oqo"]
+radius = 53.1507
+
+[sub_resource type="Animation" id="Animation_yccg8"]
+resource_name = "squish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.210224, 1, 0.267943),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(3, 1), Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_rndx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sipbe"]
+_data = {
+"RESET": SubResource("Animation_rndx5"),
+"squish": SubResource("Animation_yccg8")
+}
+
+[node name="alpha" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_6y45b")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dkt1j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ogki5")
+}
+autoplay = "spin"
+speed_scale = 1.76
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_hhe2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o1oqo")
+
+[node name="Squish" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sipbe")
+}
+speed_scale = 2.0
