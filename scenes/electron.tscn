@@ -1,25 +1,31 @@
-[gd_scene load_steps=16 format=3 uid="uid://dj2xu48ecl6n1"]
+[gd_scene load_steps=18 format=3 uid="uid://dj2xu48ecl6n1"]
 
 [ext_resource type="Script" path="res://scenes/electron.gd" id="1_yiqh2"]
+[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="2_cwisj"]
 [ext_resource type="Texture2D" uid="uid://cugxo4jywecct" path="res://images/electron.png" id="2_dvlqk"]
 [ext_resource type="Texture2D" uid="uid://bxedst0oq3n64" path="res://images/magnet.png" id="3_e61xx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t33t3"]
-atlas = ExtResource("2_dvlqk")
-region = Rect2(0, 0, 20, 20)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ckk6"]
+shader = ExtResource("2_cwisj")
+shader_parameter/line_color = Color(0.803922, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mxja3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qxav"]
 atlas = ExtResource("2_dvlqk")
-region = Rect2(20, 0, 20, 20)
+region = Rect2(0, 0, 21, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hrf6"]
+atlas = ExtResource("2_dvlqk")
+region = Rect2(21, 0, 21, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0qcww"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t33t3")
+"texture": SubResource("AtlasTexture_3qxav")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mxja3")
+"texture": SubResource("AtlasTexture_5hrf6")
 }],
 "loop": true,
 "name": &"default",
@@ -100,6 +106,8 @@ collision_mask = 0
 script = ExtResource("1_yiqh2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_1ckk6")
+position = Vector2(0, 19)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_0qcww")
 autoplay = "default"

@@ -77,7 +77,6 @@ func _physics_process(delta: float) -> void:
 	elif state == "Hit":
 		velocity *= HIT_SLOWDOWN_RATE
 		#$AnimatedSprite2D.animation = "hit"
-
 	$AnimatedSprite2D.scale.y = 2 - abs(velocity.x / (MAXSPEED * 4)) + abs(velocity.y / (MAXSPEED * 5))
 	$AnimatedSprite2D.scale.x = 2 - abs(velocity.y / (MAXSPEED * 4)) + abs(velocity.x / (MAXSPEED * 8))
 	rotation += rotational_velocity

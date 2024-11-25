@@ -1,17 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://di2ydx8nbw1um"]
+[gd_scene load_steps=15 format=3 uid="uid://di2ydx8nbw1um"]
 
 [ext_resource type="Script" path="res://scenes/alpha.gd" id="1_6y45b"]
+[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="2_lc72b"]
 [ext_resource type="Texture2D" uid="uid://d3ckyq0mi7whp" path="res://images/alpha.png" id="2_xkyle"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ang5o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xl50c"]
+shader = ExtResource("2_lc72b")
+shader_parameter/line_color = Color(0.803922, 0, 0, 1)
+shader_parameter/line_thickness = 1.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbnja"]
 atlas = ExtResource("2_xkyle")
-region = Rect2(0, 0, 50, 50)
+region = Rect2(0, 0, 57, 56)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dkt1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ang5o")
+"texture": SubResource("AtlasTexture_cbnja")
 }],
 "loop": true,
 "name": &"default",
@@ -104,6 +110,8 @@ collision_mask = 0
 script = ExtResource("1_6y45b")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_xl50c")
+position = Vector2(-2, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_dkt1j")
 
