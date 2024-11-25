@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4dxg0sktk4j7"]
+[gd_scene load_steps=31 format=3 uid="uid://c4dxg0sktk4j7"]
 
 [ext_resource type="Script" path="res://scenes/beta_minus.gd" id="1_nhkdp"]
 [ext_resource type="Script" path="res://scenes/neutron.gd" id="1_u6htj"]
@@ -46,7 +46,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_h6lb4"]
 resource_name = "merge"
-length = 3.8
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -114,7 +114,7 @@ tracks/5/path = NodePath("Symbol:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 3.03333),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -126,7 +126,7 @@ tracks/6/path = NodePath("Symbol:self_modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(3.03333, 3.23333, 3.53333, 3.73333),
+"times": PackedFloat32Array(3, 3.2, 3.36667, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1, 4.59479),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -138,7 +138,7 @@ tracks/7/path = NodePath("Symbol:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(3.03333, 3.23333),
+"times": PackedFloat32Array(3, 3.2),
 "transitions": PackedFloat32Array(0.34151, 1),
 "update": 0,
 "values": [Vector2(4, 4), Vector2(2, 2)]
@@ -182,27 +182,134 @@ radius = 25.4951
 atlas = ExtResource("3_j4rll")
 region = Rect2(0, 0, 96, 82)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdy4n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhxdy"]
 atlas = ExtResource("3_j4rll")
 region = Rect2(96, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfew1"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(864, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp24t"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(960, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p17k0"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(1056, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n34qi"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(1152, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_088ss"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(1248, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akghj"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(192, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwehm"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(288, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl0b2"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(384, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2whfj"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(480, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh0yd"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(576, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhae3"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(672, 0, 96, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oy6q"]
+atlas = ExtResource("3_j4rll")
+region = Rect2(768, 0, 96, 82)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lghvv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g1m3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhxdy")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tfew1")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_sp24t")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_p17k0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n34qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_088ss")
+}],
+"loop": false,
+"name": &"sneeze",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kdy4n")
+"texture": SubResource("AtlasTexture_akghj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl0b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akghj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl0b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akghj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl0b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwehm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_2whfj")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gh0yd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhae3")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_2oy6q")
 }],
-"loop": true,
+"loop": false,
 "name": &"stay",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g58qg"]
@@ -222,7 +329,7 @@ autoplay = "merge"
 speed_scale = 0.6
 
 [node name="Neutron" type="CharacterBody2D" parent="."]
-position = Vector2(-1300, 0)
+position = Vector2(-1500, 0)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_u6htj")
@@ -244,7 +351,7 @@ position = Vector2(14, 1)
 shape = SubResource("CircleShape2D_7pkcv")
 
 [node name="Nucleus" type="CharacterBody2D" parent="."]
-position = Vector2(1300, 0)
+position = Vector2(1500, 0)
 scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 0
@@ -252,10 +359,12 @@ script = ExtResource("1_u6htj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Nucleus"]
 sprite_frames = SubResource("SpriteFrames_lghvv")
+animation = &"sneeze"
 autoplay = "default"
 offset = Vector2(5.925, -1.515)
 
 [node name="Area2D" type="Area2D" parent="Nucleus"]
+position = Vector2(6.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nucleus/Area2D"]
 position = Vector2(14.5, -2)
@@ -266,9 +375,10 @@ position = Vector2(14, -2)
 shape = SubResource("CircleShape2D_6tdh8")
 
 [node name="Symbol" type="Sprite2D" parent="."]
-position = Vector2(30, 0)
+position = Vector2(57, -104)
 scale = Vector2(2, 2)
 texture = ExtResource("5_d7ogd")
 
 [connection signal="area_entered" from="Neutron/Area2D" to="Neutron" method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="Nucleus/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Nucleus/Area2D" to="Nucleus" method="_on_area_2d_area_entered"]
