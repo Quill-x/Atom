@@ -11,6 +11,8 @@ var score = 0
 var rotational_velocity = 0
 var maxspeed = MAXSPEED
 var state = "Normal"
+var damagedScene = preload("res://scenes/damage_indicator.tscn")
+var damagedInstance = null
 
 func get_hit(pos):
 	state = "Hit"
@@ -22,6 +24,10 @@ func get_hit(pos):
 	$Hit.play()
 	
 	$ScoreLabel.decreaseScore(5)
+	
+	damagedInstance = damagedScene.instantiate()
+	damagedInstance.position = position
+	get_tree().root.add_child(damagedInstance)
 	
 	var direction = (position - pos).normalized()
 	velocity = direction * HIT_VELOCITY

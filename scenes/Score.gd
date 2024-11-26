@@ -15,3 +15,4 @@ func _process(delta: float) -> void:
 		score_timer = SCORE_TIME
 	text = "Score: " + str(score)
 	score = clamp(score,0,INF)
+	Global.score = score
