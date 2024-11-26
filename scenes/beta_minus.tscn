@@ -186,7 +186,7 @@ radius = 25.4951
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mxbg"]
 shader = ExtResource("3_sm3r5")
-shader_parameter/line_color = Color(0.803922, 0, 0, 1)
+shader_parameter/line_color = Color(0.941176, 0, 0, 1)
 shader_parameter/line_thickness = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1m3d"]

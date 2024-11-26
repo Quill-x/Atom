@@ -65,7 +65,7 @@ _data = {
 }
 
 [node name="DamageIndicator" type="CharacterBody2D"]
-z_index = -4096
+z_index = -4095
 z_as_relative = false
 script = ExtResource("2_4nfop")
 
