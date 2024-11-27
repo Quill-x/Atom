@@ -3,25 +3,57 @@ extends Sprite2D
 var frameCounter = 0
 var isAlreadyDisplayingText = false
 
-func display_text(text,time):
+var text_state = "Normal"
+var silent_characters = [".", "?", "!", ","," "]
+
+func display_text(text,time,continuable):
 	isAlreadyDisplayingText = true
 	$SpeechBubble/Label.text = ""
 	$Seaborg.play("default")
 	for i in range(len(text)):
 		$SpeechBubble/Label.text += text[i]
-		$AudioStreamPlayer.play()
-		await get_tree().create_timer(.04).timeout
+		if !text[i] in silent_characters:
+			$AudioStreamPlayer.pitch_scale = RandomNumberGenerator.new().randf_range(0.97, 1.03)
+			$AudioStreamPlayer.play()
+		else:
+			if !text[i] == " ":
+				await get_tree().create_timer(.1).timeout
+		await get_tree().create_timer(.03).timeout
 	$Seaborg.frame = 0
 	$Seaborg.stop()
 	await get_tree().create_timer(time).timeout
-	$Seaborg/AnimationPlayer.play("Disappear")
+	isAlreadyDisplayingText = false
+	if !continuable:
+		$Seaborg/AnimationPlayer.play("Disappear")
 
 func _process(delta):
-	if floor(GlobalTimer.time) == 688:
+	if floor(GlobalTimer.time) == 689:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")
 		await get_tree().create_timer(1.5).timeout
 		if isAlreadyDisplayingText == false:
-			display_text("Supah Dupah
-Ultra Cool Test
-Message",3)
+			display_text("Okay, censors
+calibrated,
+vaccum prepared,
+and beam target
+locked. We
+are clear to
+boot up the
+accelerator.",1,true)
+	if floor(GlobalTimer.time) ==  682:
+		if !isAlreadyDisplayingText:
+			text_state = "Shaky"
+			display_text("LAWRENCE,
+START THE
+DUETRON FLOW!
+LETS GET THIS
+CYCLOTRON UP
+AND RUNNIN'!!!",3,false)
+	if floor(GlobalTimer.time) == 675:
+		$Tutorial/AnimationPlayer.play("tutorial")
+	if text_state == "Shaky" and isAlreadyDisplayingText:
+		$SpeechBubble/Label.position.x = RandomNumberGenerator.new().randi_range(-1,1)-54
+		$SpeechBubble/Label.position.y = RandomNumberGenerator.new().randi_range(-1,1)-115
+	if text_state == "Normal" and isAlreadyDisplayingText:
+		$SpeechBubble/Label.position.x = -54
+		$SpeechBubble/Label.position.y = -115

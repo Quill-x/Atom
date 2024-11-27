@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://df3y3vmxrwya6"]
+[gd_scene load_steps=15 format=3 uid="uid://df3y3vmxrwya6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_xwvgi"]
 [ext_resource type="Texture2D" uid="uid://p3yhb6sl3iyc" path="res://images/player.png" id="2_bpjtl"]
 [ext_resource type="Shader" path="res://scenes/outline.gdshader" id="2_r60nu"]
 [ext_resource type="AudioStream" uid="uid://0qsb4p3di5or" path="res://audio/hit.ogg" id="3_hb4pw"]
 [ext_resource type="Script" path="res://scenes/Score.gd" id="4_35h1i"]
+[ext_resource type="Texture2D" uid="uid://c4h2altg48rfq" path="res://images/playerEyes.png" id="6_caob6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qihoo"]
 size = Vector2(52, 52)
@@ -98,3 +99,7 @@ theme_override_font_sizes/font_size = 25
 text = "Score: Test"
 horizontal_alignment = 1
 script = ExtResource("4_35h1i")
+
+[node name="Eyes" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("6_caob6")
