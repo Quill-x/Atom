@@ -5,9 +5,13 @@ var electronInstance = null
 var nucleusScene = preload("res://scenes/sine_nucleus.tscn")
 var nucleusInstance = null
 var animationPlayed = false
+var type = RandomNumberGenerator.new().randi_range(0,2)
 
 func _ready():
-	position.y = RandomNumberGenerator.new().randf_range(-550, 500)
+	if type == 2:
+		position.y = Global.player_y
+	else:
+		position.y = RandomNumberGenerator.new().randf_range(-550, 500)
 	position.x = RandomNumberGenerator.new().randf_range(-300, 300)
 
 func _physics_process(delta):

@@ -40,6 +40,8 @@ func get_hit(pos):
 	rotation = 0
 
 func _physics_process(delta: float) -> void:
+	Global.player_x = position.x
+	Global.player_y = position.y
 	if state == "Normal":
 		if Input.is_action_pressed("Left"):
 			velocity.x -= ACCELERATION

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=27 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -9,13 +9,196 @@
 [ext_resource type="AudioStream" uid="uid://c75ahyx5egw0p" path="res://audio/funky_battle.ogg" id="5_h1f6n"]
 [ext_resource type="Script" path="res://scenes/timer_text.gd" id="7_kuq0e"]
 [ext_resource type="Texture2D" uid="uid://db0whoelo6fng" path="res://images/dialogueBox.png" id="8_bdob4"]
+[ext_resource type="Texture2D" uid="uid://cv7vb55dq4gl3" path="res://images/seaborg.png" id="9_1fd7j"]
+[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="9_chjej"]
+[ext_resource type="Texture2D" uid="uid://dn6lio3vtl1ke" path="res://images/speechbubble.png" id="9_f1csv"]
+[ext_resource type="Script" path="res://scenes/dialogue_box.gd" id="9_jisnt"]
 [ext_resource type="Script" path="res://scenes/ui_score.gd" id="10_laqys"]
+[ext_resource type="FontFile" uid="uid://c22wavpe5k2mo" path="res://fonts/Ticketing.ttf" id="11_crmgr"]
+[ext_resource type="AudioStream" uid="uid://gphky1adax45" path="res://audio/seaborg_voice.ogg" id="12_p208s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpb66"]
 size = Vector2(159.186, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfq0v"]
+shader = ExtResource("9_chjej")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytr20"]
+atlas = ExtResource("9_1fd7j")
+region = Rect2(0, 0, 348, 292)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hbn0"]
+atlas = ExtResource("9_1fd7j")
+region = Rect2(348, 0, 348, 292)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eryvs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytr20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hbn0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="Animation" id="Animation_0jiwr"]
+resource_name = "Appear"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00532076, 0.2, 0.261346, 0.728013, 0.828013, 1.12801, 1.22801, 1.49468),
+"transitions": PackedFloat32Array(-2, -2, -2, 1, 2.14355, 0.25, -2, 1),
+"update": 0,
+"values": [Vector2(87, 600), Vector2(87, 600), Vector2(87, 600), Vector2(87, 350), Vector2(87, 330), Vector2(87, 470), Vector2(87, 500), Vector2(87, 470)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.194679, 0.261346, 0.394679, 0.594679, 0.733333, 0.866667, 1.12801, 1.22801, 1.49468),
+"transitions": PackedFloat32Array(0.353553, 0.353553, -2, 1, -2, 1.93187, 1, 0.25, -2, 1),
+"update": 0,
+"values": [Vector2(0.444444, 0.361111), Vector2(0.444444, 0.361111), Vector2(0.5, 0.25), Vector2(0.4, 0.6), Vector2(0.4, 0.6), Vector2(0.55, 0.45), Vector2(0.5, 0.5), Vector2(0.5, 0.5), Vector2(0.6, 0.4), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.194679),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SpeechBubble:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 0.267943, 1),
+"update": 0,
+"values": [Vector2(-85, 272.5), Vector2(-85, 272.5), Vector2(85, 272.5)]
+}
+
+[sub_resource type="Animation" id="Animation_5dqf0"]
+resource_name = "Disappear"
+length = 1.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.13333),
+"transitions": PackedFloat32Array(-4.75683, 2.73208, 0.5),
+"update": 0,
+"values": [Vector2(87, 470), Vector2(87, 430), Vector2(87, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.466667, 0.6, 0.966667),
+"transitions": PackedFloat32Array(-4.75683, 1.36604, 1.93187, 2.14355, -4.75683),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.4, 0.6), Vector2(0.45, 0.55), Vector2(0.45, 0.55), Vector2(0.2, 0.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SpeechBubble:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(2.37841, 1),
+"update": 0,
+"values": [Vector2(85, 272.5), Vector2(-85, 272.5)]
+}
+
+[sub_resource type="Animation" id="Animation_witj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, -750)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SpeechBubble:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99, 272.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4itc0"]
+_data = {
+"Appear": SubResource("Animation_0jiwr"),
+"Disappear": SubResource("Animation_5dqf0"),
+"RESET": SubResource("Animation_witj5")
+}
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ue7x2")
@@ -102,7 +285,7 @@ volume_db = -8.0
 autoplay = true
 
 [node name="Control" type="Control" parent="."]
-z_index = 4096
+z_index = 4090
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
@@ -110,12 +293,47 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DialogueBox" type="Sprite2D" parent="Control"]
+z_index = 1
 position = Vector2(-1042, -573)
 scale = Vector2(2, 2)
 texture = ExtResource("8_bdob4")
 centered = false
+script = ExtResource("9_jisnt")
+
+[node name="SpeechBubble" type="Sprite2D" parent="Control/DialogueBox"]
+position = Vector2(-99, 272.5)
+texture = ExtResource("9_f1csv")
+
+[node name="Label" type="Label" parent="Control/DialogueBox/SpeechBubble"]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -54.0
+offset_top = -115.5
+offset_right = -14.0
+offset_bottom = -92.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_crmgr")
+
+[node name="Seaborg" type="AnimatedSprite2D" parent="Control/DialogueBox"]
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_dfq0v")
+position = Vector2(87, -750)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_eryvs")
+frame_progress = 0.418466
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/DialogueBox/Seaborg"]
+libraries = {
+"": SubResource("AnimationLibrary_4itc0")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/DialogueBox"]
+stream = ExtResource("12_p208s")
+volume_db = -20.0
 
 [node name="TimerText" type="Label" parent="Control"]
+z_index = 1
 layout_mode = 0
 offset_left = -1022.0
 offset_top = -565.0
@@ -126,6 +344,7 @@ text = "Time:"
 script = ExtResource("7_kuq0e")
 
 [node name="UiScore" type="Label" parent="Control"]
+z_index = 1
 layout_mode = 0
 offset_left = -1021.0
 offset_top = -519.0

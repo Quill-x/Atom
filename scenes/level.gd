@@ -15,12 +15,12 @@ func _process(delta):
 		if enemy == 0 or enemy == 1 or enemy == 2 or enemy == 3 or enemy == 4:
 			add_child(deuteronInstance)
 			deuteronInstance = deuteronScene.instantiate()
-			spawn_timer = RandomNumberGenerator.new().randf_range(0.01, 1.5)
+			spawn_timer = RandomNumberGenerator.new().randf_range(0.01, .8)
 		if enemy >= 6:
 			add_child(electronInstance)
 			electronInstance = electronScene.instantiate()
-			spawn_timer = RandomNumberGenerator.new().randf_range(0.01, 2)
+			spawn_timer = RandomNumberGenerator.new().randf_range(1, 3)
 		if enemy == 5 or enemy == 6:
 			add_child(alphaInstance)
 			alphaInstance = alphaScene.instantiate()
-			spawn_timer = RandomNumberGenerator.new().randf_range(0.01, 2)
+			spawn_timer = RandomNumberGenerator.new().randf_range(0.01, 1.5)
