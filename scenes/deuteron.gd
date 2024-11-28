@@ -10,7 +10,14 @@ var rotation_timer = ROTATION_TIME
 
 func _ready():
 	position.x = 1012
-	position.y = RandomNumberGenerator.new().randf_range(-550, 500)
+	if GlobalTimer.time < 670 and GlobalTimer.time > 665:
+		if RandomNumberGenerator.new().randi_range(0,1) == 0:
+			position.y = Global.player_y
+		else:
+			position.y = RandomNumberGenerator.new().randf_range(-550, 500)
+	else:
+		position.y = RandomNumberGenerator.new().randf_range(-550, 500)
+
 	$Base.rotation = deg_to_rad(RandomNumberGenerator.new().randi_range(1,2) * 180)
 
 func _physics_process(delta: float) -> void:

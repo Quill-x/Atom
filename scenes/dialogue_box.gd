@@ -32,7 +32,7 @@ func _process(delta):
 		$Seaborg/AnimationPlayer.play("Appear")
 		await get_tree().create_timer(1.5).timeout
 		if isAlreadyDisplayingText == false:
-			display_text("Okay, censors
+			display_text("Okay, sensors
 calibrated,
 vaccum prepared,
 and beam target
@@ -45,12 +45,59 @@ accelerator.",1,true)
 			text_state = "Shaky"
 			display_text("LAWRENCE,
 START THE
-DUETRON FLOW!
+DEUTRON FLOW!
 LETS GET THIS
 CYCLOTRON UP
 AND RUNNIN'!!!",3,false)
 	if floor(GlobalTimer.time) == 675:
 		$Tutorial/AnimationPlayer.play("tutorial")
+		
+	if floor(GlobalTimer.time) ==  652:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("Lawrence, is 
+something wrong?
+Theres barely
+anything in the
+beam! At this
+rate we won't
+create anything.
+Ramp the flow
+up a notch!",3,false)
+	if floor(GlobalTimer.time) ==  627:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("The accelerator
+should be clear
+for launching
+alpha particles
+now. Lawrence,
+you know what
+to do!",3,false)
+	if floor(GlobalTimer.time) ==  592:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			$Alert/AnimationPlayer.play("appear")
+			display_text("Eureka! We
+managed to hit
+something!
+But the wrong
+thing... We
+need to hit the
+target nucleus
+in order to
+create these
+new elements... ",6,false)
+
 	if text_state == "Shaky" and isAlreadyDisplayingText:
 		$SpeechBubble/Label.position.x = RandomNumberGenerator.new().randi_range(-1,1)-54
 		$SpeechBubble/Label.position.y = RandomNumberGenerator.new().randi_range(-1,1)-115

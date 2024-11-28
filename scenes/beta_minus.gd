@@ -6,6 +6,8 @@ var nucleusScene = preload("res://scenes/sine_nucleus.tscn")
 var nucleusInstance = null
 var animationPlayed = false
 var type = RandomNumberGenerator.new().randi_range(0,2)
+var has_summoned_electron = false
+
 
 func _ready():
 	if type == 2:
@@ -16,10 +18,12 @@ func _ready():
 
 func _physics_process(delta):
 	if !$Nucleus/AnimatedSprite2D.is_playing():
-		if electronInstance == null:
+		if electronInstance == null and !has_summoned_electron:
 			electronInstance = electronScene.instantiate()
 			electronInstance.position = position
 			get_tree().root.add_child(electronInstance)
+			has_summoned_electron = true
+			
 		
 		if nucleusInstance == null and !animationPlayed:
 			$Nucleus/AnimatedSprite2D.play("sneeze")

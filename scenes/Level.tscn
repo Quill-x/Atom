@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=35 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/ui_score.gd" id="10_laqys"]
 [ext_resource type="FontFile" uid="uid://c22wavpe5k2mo" path="res://fonts/Ticketing.ttf" id="11_crmgr"]
 [ext_resource type="AudioStream" uid="uid://gphky1adax45" path="res://audio/seaborg_voice.ogg" id="12_p208s"]
+[ext_resource type="Texture2D" uid="uid://bui45rc4a0h4v" path="res://images/alert.png" id="16_5h385"]
 [ext_resource type="Texture2D" uid="uid://3dimg5rb4o2q" path="res://images/tutorial.png" id="17_o0qr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
@@ -201,6 +202,33 @@ _data = {
 "RESET": SubResource("Animation_witj5")
 }
 
+[sub_resource type="Animation" id="Animation_5v2hx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
 [sub_resource type="Animation" id="Animation_kf58k"]
 resource_name = "tutorial"
 length = 8.0
@@ -229,37 +257,47 @@ tracks/1/keys = {
 "values": [Vector2(2, 2), Vector2(0.5, 0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_5v2hx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2m1k"]
+_data = {
+"RESET": SubResource("Animation_5v2hx"),
+"tutorial": SubResource("Animation_kf58k")
+}
+
+[sub_resource type="Animation" id="Animation_khq1p"]
+resource_name = "appear"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3.03333, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(544.5, 560), Vector2(544.5, 520), Vector2(544.5, 520), Vector2(544.5, 560)]
+}
+
+[sub_resource type="Animation" id="Animation_fmhr4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
+"values": [Vector2(488, 560)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2m1k"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kq7as"]
 _data = {
-"RESET": SubResource("Animation_5v2hx"),
-"tutorial": SubResource("Animation_kf58k")
+"RESET": SubResource("Animation_fmhr4"),
+"appear": SubResource("Animation_khq1p")
 }
 
 [node name="Level" type="Node2D"]
@@ -404,6 +442,17 @@ texture = ExtResource("17_o0qr8")
 libraries = {
 "": SubResource("AnimationLibrary_e2m1k")
 }
+
+[node name="Alert" type="Sprite2D" parent="Control/DialogueBox"]
+position = Vector2(488, 560)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("16_5h385")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/DialogueBox/Alert"]
+libraries = {
+"": SubResource("AnimationLibrary_kq7as")
+}
+speed_scale = 0.7
 
 [node name="TimerText" type="Label" parent="Control"]
 z_index = 1

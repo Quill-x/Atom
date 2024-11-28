@@ -40,8 +40,8 @@ func get_hit(pos):
 	rotation = 0
 
 func _physics_process(delta: float) -> void:
-	$Eyes.position.x = velocity.x/(maxspeed/4)
-	$Eyes.position.y = velocity.y/(maxspeed/6)
+	$Eyes.position.x = clamp(velocity.x/(maxspeed/4),-4,4)
+	$Eyes.position.y = clamp(velocity.y/(maxspeed/6),-6,6)
 	Global.player_x = position.x
 	Global.player_y = position.y
 	if state == "Normal":
