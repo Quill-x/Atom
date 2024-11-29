@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=36 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://gphky1adax45" path="res://audio/seaborg_voice.ogg" id="12_p208s"]
 [ext_resource type="Texture2D" uid="uid://bui45rc4a0h4v" path="res://images/alert.png" id="16_5h385"]
 [ext_resource type="Texture2D" uid="uid://3dimg5rb4o2q" path="res://images/tutorial.png" id="17_o0qr8"]
+[ext_resource type="Script" path="res://scenes/wave.gd" id="18_3amqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
@@ -263,6 +264,21 @@ _data = {
 "tutorial": SubResource("Animation_kf58k")
 }
 
+[sub_resource type="Animation" id="Animation_fmhr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(488, 560)]
+}
+
 [sub_resource type="Animation" id="Animation_khq1p"]
 resource_name = "appear"
 length = 9.0
@@ -277,21 +293,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(544.5, 560), Vector2(544.5, 520), Vector2(544.5, 520), Vector2(544.5, 560)]
-}
-
-[sub_resource type="Animation" id="Animation_fmhr4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(488, 560)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kq7as"]
@@ -466,7 +467,8 @@ text = "Time:"
 script = ExtResource("7_kuq0e")
 
 [node name="UiScore" type="Label" parent="Control"]
-z_index = 1
+z_index = 4096
+z_as_relative = false
 layout_mode = 0
 offset_left = -1021.0
 offset_top = -519.0
@@ -475,5 +477,15 @@ offset_bottom = -470.0
 theme_override_font_sizes/font_size = 35
 text = "Score:"
 script = ExtResource("10_laqys")
+
+[node name="Wave" type="Label" parent="."]
+visible = false
+offset_left = -655.0
+offset_top = -559.0
+offset_right = -579.0
+offset_bottom = -523.0
+theme_override_font_sizes/font_size = 26
+text = "Wave:"
+script = ExtResource("18_3amqj")
 
 [connection signal="area_entered" from="Wall Detection" to="Wall Detection" method="_on_area_entered"]

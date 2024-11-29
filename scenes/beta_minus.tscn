@@ -372,8 +372,10 @@ script = ExtResource("1_u6htj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Nucleus"]
 material = SubResource("ShaderMaterial_7mxbg")
 sprite_frames = SubResource("SpriteFrames_lghvv")
-animation = &"sneeze"
+animation = &"stay"
 autoplay = "default"
+frame = 12
+frame_progress = 1.0
 offset = Vector2(5.925, -1.515)
 
 [node name="Area2D" type="Area2D" parent="Nucleus"]

@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://34201cpijmfk"]
+
+[ext_resource type="Texture2D" uid="uid://bfyorgb4bjyi8" path="res://images/TitleBackground.png" id="1_bctbj"]
+[ext_resource type="Texture2D" uid="uid://cyi50c58ybeh8" path="res://images/atomlogo.png" id="1_htcuk"]
+[ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_ossxh"]
+[ext_resource type="Texture2D" uid="uid://b73xxgaxhs3dv" path="res://images/credits.png" id="4_4dv28"]
+[ext_resource type="Script" path="res://scenes/credits.gd" id="5_4aj07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7cwc"]
+atlas = ExtResource("1_htcuk")
+region = Rect2(0, 0, 289, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro1ho"]
+atlas = ExtResource("1_htcuk")
+region = Rect2(289, 0, 289, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxb4j"]
+atlas = ExtResource("1_htcuk")
+region = Rect2(578, 0, 289, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n37q7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7cwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro1ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxb4j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_2o22m"]
+resource_name = "enter"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(0.196146, 1),
+"update": 0,
+"values": [Vector2(1650, -600), Vector2(1650, 354)]
+}
+
+[sub_resource type="Animation" id="Animation_hniea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.196146),
+"update": 0,
+"values": [Vector2(1650, -600)]
+}
+
+[sub_resource type="Animation" id="Animation_nwydi"]
+resource_name = "leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(2.92817, 0.196146),
+"update": 0,
+"values": [Vector2(1650, 354), Vector2(1650, -600)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqwxw"]
+_data = {
+"RESET": SubResource("Animation_hniea"),
+"enter": SubResource("Animation_2o22m"),
+"leave": SubResource("Animation_nwydi")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ossxh")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_bctbj")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_n37q7")
+autoplay = "default"
+frame_progress = 0.282978
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Play" type="Button" parent="."]
+offset_left = 650.0
+offset_top = 524.0
+offset_right = 1260.0
+offset_bottom = 639.0
+text = "play game "
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1650, -600)
+scale = Vector2(2, 2)
+texture = ExtResource("4_4dv28")
+script = ExtResource("5_4aj07")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_kqwxw")
+}
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 1661.0
+offset_top = 6.0
+offset_right = 1914.0
+offset_bottom = 83.0
+text = "Credits"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Credits" to="Sprite2D" method="_on_credits_pressed"]
