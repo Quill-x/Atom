@@ -1,7 +1,9 @@
 extends Node
 
+var timer_subtract = 150
 var in_game = false
-var time = 690
+#var time = 690-timer_subtract
+var time = 70
 var minutes = 0
 var seconds = 0
 

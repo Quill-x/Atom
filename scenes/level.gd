@@ -29,14 +29,14 @@ func _process(delta):
 	#		spawn_timer = RandomNumberGenerator.new().randf_range(0.01, 1.5)
 	
 	# Wave 1
-	if GlobalTimer.time < 670 and GlobalTimer.time > 665:
+	if GlobalTimer.time < 670-GlobalTimer.timer_subtract and GlobalTimer.time > 665-GlobalTimer.timer_subtract:
 		Global.wave = 1
 		if spawn_timer <= 0:
 			add_child(deuteronInstance)
 			deuteronInstance = deuteronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(1, 2)
 	#Wave 2
-	if GlobalTimer.time < 665 and GlobalTimer.time > 655: 
+	if GlobalTimer.time < 665-GlobalTimer.timer_subtract and GlobalTimer.time > 655-GlobalTimer.timer_subtract: 
 		Global.wave = 2
 		if spawn_timer <= 0:
 			for i in range(2): # They appear in pairs
@@ -44,14 +44,14 @@ func _process(delta):
 				deuteronInstance = deuteronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(2, 3)
 	#Wave 3
-	if GlobalTimer.time < 645 and GlobalTimer.time > 630: 
+	if GlobalTimer.time < 645-GlobalTimer.timer_subtract and GlobalTimer.time > 630-GlobalTimer.timer_subtract: 
 		Global.wave = 3
 		if spawn_timer <= 0:
 			add_child(deuteronInstance)
 			deuteronInstance = deuteronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(.5,.75)
 	#Wave 4
-	if GlobalTimer.time < 624 and GlobalTimer.time > 611: 
+	if GlobalTimer.time < 624-GlobalTimer.timer_subtract and GlobalTimer.time > 611-GlobalTimer.timer_subtract: 
 		Global.wave = 4
 		if spawn_timer <= 0:
 			var enemy = randi_range(0,2)
@@ -64,7 +64,7 @@ func _process(delta):
 				deuteronInstance = deuteronScene.instantiate()
 				spawn_timer = RandomNumberGenerator.new().randf_range(.1,.75)
 	#Wave 5
-	if GlobalTimer.time < 611 and GlobalTimer.time > 600: 
+	if GlobalTimer.time < 611-GlobalTimer.timer_subtract and GlobalTimer.time > 600-GlobalTimer.timer_subtract: 
 		Global.wave = 5
 		if spawn_timer <= 0:
 			var enemy = randi_range(0,2)
@@ -77,21 +77,21 @@ func _process(delta):
 				deuteronInstance = deuteronScene.instantiate()
 				spawn_timer = RandomNumberGenerator.new().randf_range(0,.5)
 	#Surprise Beta Minus
-	if floor(GlobalTimer.time) == 598:
+	if floor(GlobalTimer.time) == 598-GlobalTimer.timer_subtract:
 		Global.wave = 6
 		if spawn_timer <= 0:
 			add_child(electronInstance)
 			electronInstance = electronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(1, 2)
 	#Wave 7
-	if GlobalTimer.time < 588 and GlobalTimer.time > 580:
+	if GlobalTimer.time < 588-GlobalTimer.timer_subtract and GlobalTimer.time > 580-GlobalTimer.timer_subtract:
 		Global.wave = 7
 		if spawn_timer <= 0:
 			add_child(electronInstance)
 			electronInstance = electronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(3, 5)
 	#Wave 9
-	if GlobalTimer.time < 560 and GlobalTimer.time > 520: 
+	if GlobalTimer.time < 60 and GlobalTimer.time > 0: 
 		Global.wave = 9
 		if spawn_timer <= 0:
 			var enemy = randi_range(0,4)
@@ -114,7 +114,7 @@ func _process(delta):
 				alphaInstance = alphaScene.instantiate()
 				spawn_timer = RandomNumberGenerator.new().randf_range(.1,1)
 	#Wave 8
-	if GlobalTimer.time < 580 and GlobalTimer.time > 560: 
+	if GlobalTimer.time < 580-GlobalTimer.timer_subtract and GlobalTimer.time > 560-GlobalTimer.timer_subtract: 
 		Global.wave = 8
 		if spawn_timer <= 0:
 			var enemy = randi_range(0,5)
@@ -123,10 +123,7 @@ func _process(delta):
 				electronInstance = electronScene.instantiate()
 				spawn_timer = RandomNumberGenerator.new().randf_range(2, 2.2)
 			elif enemy == 1 or enemy == 0 or enemy == 3:
-				add_child(deuteronInstance)
-				deuteronInstance = deuteronScene.instantiate()
-				spawn_timer = RandomNumberGenerator.new().randf_range(0,0.4)
-			else:
-				add_child(alphaInstance)
-				alphaInstance = alphaScene.instantiate()
-				spawn_timer = RandomNumberGenerator.new().randf_range(2,2.2)
+				for i in range(2): # They appear in pairs
+					add_child(deuteronInstance)
+					deuteronInstance = deuteronScene.instantiate()
+				spawn_timer = RandomNumberGenerator.new().randf_range(1,1.5)

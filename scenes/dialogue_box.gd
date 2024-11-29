@@ -27,7 +27,7 @@ func display_text(text,time,continuable):
 		$Seaborg/AnimationPlayer.play("Disappear")
 
 func _process(delta):
-	if floor(GlobalTimer.time) == 689:
+	if floor(GlobalTimer.time) == 689 - GlobalTimer.timer_subtract:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")
 		await get_tree().create_timer(1.5).timeout
@@ -40,7 +40,7 @@ locked. We
 are clear to
 boot up the
 accelerator.",1,true)
-	if floor(GlobalTimer.time) ==  682:
+	if floor(GlobalTimer.time) ==  682 - GlobalTimer.timer_subtract:
 		if !isAlreadyDisplayingText:
 			text_state = "Shaky"
 			display_text("LAWRENCE,
@@ -49,10 +49,10 @@ DEUTRON FLOW!
 LETS GET THIS
 CYCLOTRON UP
 AND RUNNIN'!!!",3,false)
-	if floor(GlobalTimer.time) == 675:
+	if floor(GlobalTimer.time) == 675 - GlobalTimer.timer_subtract:
 		$Tutorial/AnimationPlayer.play("tutorial")
 		
-	if floor(GlobalTimer.time) ==  652:
+	if floor(GlobalTimer.time) ==  652 - GlobalTimer.timer_subtract:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")
 		await get_tree().create_timer(1.5).timeout
@@ -67,7 +67,7 @@ rate we won't
 create anything.
 Ramp the flow
 up a notch!",3,false)
-	if floor(GlobalTimer.time) ==  627:
+	if floor(GlobalTimer.time) ==  627 - GlobalTimer.timer_subtract:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")
 		await get_tree().create_timer(1.5).timeout
@@ -80,7 +80,7 @@ alpha particles
 now. Lawrence,
 you know what
 to do!",3,false)
-	if floor(GlobalTimer.time) ==  592:
+	if floor(GlobalTimer.time) ==  592 - GlobalTimer.timer_subtract:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")
 		await get_tree().create_timer(1.5).timeout
@@ -97,7 +97,36 @@ target nucleus
 in order to
 create these
 new elements... ",6,false)
-
+	if floor(GlobalTimer.time) ==  560 - GlobalTimer.timer_subtract:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("What the...
+I'm looking at
+the data, is
+our target
+moving out of
+the way of our
+particles?
+Fascinating,
+yet pretty
+annoying.",1,true)
+	if floor(GlobalTimer.time) ==  548 - GlobalTimer.timer_subtract:
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("Hey nucleus,
+can you get hit
+by the nuclei
+pretty please?
+We don't have
+much time left
+before another
+group of re-
+searchers has
+to use this
+accelerator...",4,false)
 	if text_state == "Shaky" and isAlreadyDisplayingText:
 		$SpeechBubble/Label.position.x = RandomNumberGenerator.new().randi_range(-1,1)-54
 		$SpeechBubble/Label.position.y = RandomNumberGenerator.new().randi_range(-1,1)-115

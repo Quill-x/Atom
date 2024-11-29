@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Alpha
 
 const ROTATION_TIME = .05
-const BASE_SPEED = 200.0
+const BASE_SPEED = 300.0
 
 var current_y_dir = 1
 

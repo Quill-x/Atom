@@ -10,7 +10,7 @@ var rotation_timer = ROTATION_TIME
 
 func _ready():
 	position.x = 1012
-	if GlobalTimer.time < 670 and GlobalTimer.time > 665:
+	if GlobalTimer.time < 670 - GlobalTimer.timer_subtract and GlobalTimer.time > 665 - GlobalTimer.timer_subtract:
 		if RandomNumberGenerator.new().randi_range(0,1) == 0:
 			position.y = Global.player_y
 		else:

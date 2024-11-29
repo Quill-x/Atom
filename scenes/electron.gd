@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Electron
 
-const SPEED = 300
-const HOMING_TIME = 300
+const SPEED = 200
+const HOMING_TIME = 500
 const ROTATIONAL_SPEED = 100
 
 const CAMERA_X_BOUNDS = 1200
