@@ -84,9 +84,49 @@ func _process(delta):
 			electronInstance = electronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(1, 2)
 	#Wave 7
-	if GlobalTimer.time < 590 and GlobalTimer.time > 580:
+	if GlobalTimer.time < 588 and GlobalTimer.time > 580:
 		Global.wave = 7
 		if spawn_timer <= 0:
 			add_child(electronInstance)
 			electronInstance = electronScene.instantiate()
 			spawn_timer = RandomNumberGenerator.new().randf_range(3, 5)
+	#Wave 9
+	if GlobalTimer.time < 560 and GlobalTimer.time > 520: 
+		Global.wave = 9
+		if spawn_timer <= 0:
+			var enemy = randi_range(0,4)
+			if enemy == 2:
+				add_child(electronInstance)
+				electronInstance = electronScene.instantiate()
+				spawn_timer = RandomNumberGenerator.new().randf_range(.2,.4)
+			elif enemy == 0 or enemy == 4:
+				for i in range(RandomNumberGenerator.new().randi_range(1,3)):
+					add_child(deuteronInstance)
+					deuteronInstance = deuteronScene.instantiate()
+				spawn_timer = 1.2
+			elif enemy == 1:
+				for i in range(RandomNumberGenerator.new().randi_range(1,7)):
+					add_child(deuteronInstance)
+					deuteronInstance = deuteronScene.instantiate()
+				spawn_timer = 1.3
+			elif enemy == 3:
+				add_child(alphaInstance)
+				alphaInstance = alphaScene.instantiate()
+				spawn_timer = RandomNumberGenerator.new().randf_range(.1,1)
+	#Wave 8
+	if GlobalTimer.time < 580 and GlobalTimer.time > 560: 
+		Global.wave = 8
+		if spawn_timer <= 0:
+			var enemy = randi_range(0,5)
+			if enemy == 2:
+				add_child(electronInstance)
+				electronInstance = electronScene.instantiate()
+				spawn_timer = RandomNumberGenerator.new().randf_range(2, 2.2)
+			elif enemy == 1 or enemy == 0 or enemy == 3:
+				add_child(deuteronInstance)
+				deuteronInstance = deuteronScene.instantiate()
+				spawn_timer = RandomNumberGenerator.new().randf_range(0,0.4)
+			else:
+				add_child(alphaInstance)
+				alphaInstance = alphaScene.instantiate()
+				spawn_timer = RandomNumberGenerator.new().randf_range(2,2.2)
