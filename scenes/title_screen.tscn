@@ -110,7 +110,6 @@ script = ExtResource("5_qmeu2")
 
 [node name="Grid2" type="Sprite2D" parent="Grid"]
 texture_repeat = 2
-scale = Vector2(1, 1)
 texture = ExtResource("5_abnnj")
 centered = false
 offset = Vector2(-100, -10000)
