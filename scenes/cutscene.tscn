@@ -436,10 +436,34 @@ tracks/33/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Player:rotation")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Player:speed_scale")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_oevs2"]
 resource_name = "atom"
-length = 12.5
+length = 12.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -516,10 +540,10 @@ tracks/4/path = NodePath("Player:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 2.23333, 5.76667, 6.33333),
-"transitions": PackedFloat32Array(1, 0.392292, 1, 0.287175, 1),
+"times": PackedFloat32Array(0, 0.1, 2.23333, 5.7, 5.76667, 6.33333),
+"transitions": PackedFloat32Array(1, 0.392292, 1, 1, 0.287175, 1),
 "update": 0,
-"values": [Vector2(0, 4000), Vector2(0, 3750), Vector2(0, 3200), Vector2(0, 3200), Vector2(0, 3000)]
+"values": [Vector2(0, 4000), Vector2(0, 3750), Vector2(0, 3200), Vector2(0, 3200), Vector2(0, 3100), Vector2(0, 3000)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -528,10 +552,10 @@ tracks/5/path = NodePath("Player:animation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5.7, 5.76667, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [&"idle"]
+"values": [&"idle", &"idle", &"shock", &"shock_loop"]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -540,10 +564,10 @@ tracks/6/path = NodePath("Player:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 5.6, 5.7, 5.73333, 5.76667, 5.86667, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 0.25, 1, 8.57419, 0.189465, 1, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(5, 5)]
+"values": [Vector2(2, 2), Vector2(5, 5), Vector2(5, 5), Vector2(6, 4), Vector2(5, 5), Vector2(-5, 5), Vector2(-6, 4), Vector2(-5, 5)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -687,7 +711,7 @@ tracks/17/path = NodePath("Music:volume_db")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(12.0667, 12.2, 12.5),
+"times": PackedFloat32Array(12.0667, 12.2, 12.4333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, -50.0]
@@ -699,10 +723,34 @@ tracks/18/path = NodePath("Take Revenge!:self_modulate")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(12.0667, 12.4667),
+"times": PackedFloat32Array(12.0667, 12.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Player:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(5.73333, 5.76667),
+"transitions": PackedFloat32Array(19.0273, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Player:speed_scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 5.73333, 5.76667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 2.0]
 }
 
 [sub_resource type="Animation" id="Animation_x75yi"]
@@ -1739,12 +1787,10 @@ animation = &"shock_loop"
 autoplay = "idle"
 
 [node name="bg2" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-scale = Vector2(3, 3)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_pt8s4")
 
 [node name="bg1" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("5_cwcco")
 
