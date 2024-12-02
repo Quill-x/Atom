@@ -479,6 +479,7 @@ text = "Score:"
 script = ExtResource("10_laqys")
 
 [node name="Wave" type="Label" parent="."]
+visible = false
 offset_left = -655.0
 offset_top = -559.0
 offset_right = -579.0
