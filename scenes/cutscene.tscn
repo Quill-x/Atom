@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cmcdskxwe36jf"]
+[gd_scene load_steps=80 format=3 uid="uid://cmcdskxwe36jf"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_lr1an"]
 [ext_resource type="AudioStream" uid="uid://bpxesicrsjpmv" path="res://audio/crypt.mp3" id="2_p0dn0"]
@@ -17,6 +17,11 @@
 [ext_resource type="Script" path="res://scenes/shake.gd" id="14_eoolx"]
 [ext_resource type="Texture2D" uid="uid://bljckemtyyrn0" path="res://images/betaminus.png" id="14_xcv3t"]
 [ext_resource type="Texture2D" uid="uid://d3ckyq0mi7whp" path="res://images/alpha.png" id="15_iuvgi"]
+[ext_resource type="Texture2D" uid="uid://b34p20n104lqh" path="res://images/neutron.png" id="18_jtb0i"]
+[ext_resource type="Texture2D" uid="uid://dg4rhmfuuyu5e" path="res://images/adam.png" id="19_gf5ax"]
+[ext_resource type="Script" path="res://scenes/framerate.gd" id="20_enujg"]
+[ext_resource type="Texture2D" uid="uid://bgyn67cf1m534" path="res://images/deuteronBase.png" id="20_h37s3"]
+[ext_resource type="Texture2D" uid="uid://dbxcaepmly8nc" path="res://images/deutron_white.png" id="21_j63bu"]
 
 [sub_resource type="Animation" id="Animation_5ta67"]
 length = 14.0
@@ -287,6 +292,370 @@ tracks/21/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Your Goal:text")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Player:animation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shock_loop"]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Neutron:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1463, 3300)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Adam:animation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Deutron:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1234, 4290)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Adam:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Deutron:animation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"white"]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Deutron:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Take Revenge!:text")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Take revenge"]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Take Revenge!:theme_override_colors/font_color")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.658824, 0.901961, 0.113725, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oevs2"]
+resource_name = "atom"
+length = 12.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 9.96666, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 25.223,
+"stream": ExtResource("2_p0dn0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.2, 6.56667),
+"transitions": PackedFloat32Array(1, 0.287174, 1),
+"update": 0,
+"values": [Vector2(0, 3000), Vector2(0, 3000), Vector2(0, 4000)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Your Goal:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.76667, 2.93333, 3.16667, 3.3, 3.63333, 4, 4.26667, 4.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "Your goal", "Your goal
+as their target nucleus", "Your goal
+as their target nucleus
+is", "Your goal
+as their target nucleus
+is to", "Your goal
+as their target nucleus
+is to piss", "Your goal
+as their target nucleus
+is to piss the", "Your goal
+as their target nucleus
+is to piss the sci", "Your goal
+as their target nucleus
+is to piss the scientists", "Your goal
+as their target nucleus
+is to piss the scientists off."]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.23333, 5.76667, 6.33333),
+"transitions": PackedFloat32Array(1, 0.392292, 1, 0.287175, 1),
+"update": 0,
+"values": [Vector2(0, 4000), Vector2(0, 3750), Vector2(0, 3200), Vector2(0, 3200), Vector2(0, 3000)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(5, 5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Neutron:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.53333, 6.33333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1463, 3300), Vector2(-1463, 3300), Vector2(1463, 3300)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Adam:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"explode"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Deutron:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(6.83333, 8.96667, 10.0333),
+"transitions": PackedFloat32Array(1, 1.46409, 2.92817),
+"update": 0,
+"values": [Vector2(-1234, 4290), Vector2(-1234, 4290), Vector2(569, 4290)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Adam:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(9),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Deutron:animation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 10.0333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"white"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Deutron:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.0333333, 10.4333, 10.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Adam")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(8.96667, 9.43333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lower_framerate"
+}, {
+"args": [],
+"method": &"raise_framerate"
+}]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Take Revenge!:text")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 5.76667, 6.96667, 8.36667, 9.03333, 9.16667, 9.6, 10, 10.2667, 10.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "", "Go now, take revenge", "Go now, take revenge
+against the scientists", "Go now, take revenge
+against the scientists
+for", "Go now, take revenge
+against the scientists
+for killing", "Go now, take revenge
+against the scientists
+for killing your", "Go now, take revenge
+against the scientists
+for killing your friend", "Go now, take revenge
+against the scientists
+for killing your friend A", "Go now, take revenge
+against the scientists
+for killing your friend Adam!"]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Take Revenge!:theme_override_colors/font_color")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(-0.0666666, 9.96667, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.658824, 0.901961, 0.113725, 1), Color(0.658824, 0.901961, 0.113725, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_x75yi"]
 resource_name = "opening"
@@ -388,8 +757,8 @@ tracks/7/keys = {
 "values": ["
 ", "This is you.", "", "You are an
 atomic nucleus.", "About to be", "About to be
-put in a", "About to be
-put in a
+put through a", "About to be
+put through a
 cyclotron."]
 }
 tracks/8/type = "value"
@@ -423,10 +792,10 @@ tracks/10/path = NodePath("Player:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(-0.0333333, 6.76667, 6.96667, 7.13333, 7.4, 7.6, 7.73333),
-"transitions": PackedFloat32Array(1, 0.420448, 1, 0.233258, 0.517632, 0.420448, 0.420448),
+"times": PackedFloat32Array(-0.0333333, 6.76667, 6.96667, 7.13333, 7.4, 7.6, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1, 0.233258, 0.517632, 0.34151, 0.420448),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(4, 2), Vector2(4, 2), Vector2(5.5, 0.5), Vector2(2.3, 3.7), Vector2(3, 3)]
+"values": [Vector2(3, 3), Vector2(3, 3), Vector2(3.5, 2.5), Vector2(3.5, 2.5), Vector2(5.5, 0.5), Vector2(2.5, 3.5), Vector2(3, 3)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -559,7 +928,7 @@ tracks/20/keys = {
 
 [sub_resource type="Animation" id="Animation_on14l"]
 resource_name = "scientist"
-length = 12.0
+length = 11.66
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -591,7 +960,7 @@ tracks/2/path = NodePath("This is you:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.533333, 2.6, 2.8, 3.2, 3.6, 3.86667, 4.26667),
+"times": PackedFloat32Array(0, 0.533333, 2.6, 2.8, 3.16667, 3.56667, 3.83334, 4.23334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["", "Glenn Seaborg
@@ -699,7 +1068,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0, 10.9, 11.4333),
 "transitions": PackedFloat32Array(1, 1.31951, 1),
 "update": 0,
-"values": [Vector2(-1476, 2095), Vector2(-1476, 2095), Vector2(-200, 2095)]
+"values": [Vector2(-1476, 2095), Vector2(-1476, 2095), Vector2(-300, 2095)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -717,6 +1086,7 @@ tracks/10/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wl7tc"]
 _data = {
 "RESET": SubResource("Animation_5ta67"),
+"atom": SubResource("Animation_oevs2"),
 "opening": SubResource("Animation_x75yi"),
 "scientist": SubResource("Animation_on14l")
 }
@@ -977,7 +1347,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shock_loop",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r52u1"]
@@ -999,7 +1369,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 30.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jdi1"]
@@ -1101,6 +1471,185 @@ _data = {
 "spin": SubResource("Animation_f8nc5")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_duiiy"]
+shader = ExtResource("4_iipp8")
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sspy3"]
+atlas = ExtResource("18_jtb0i")
+region = Rect2(0, 0, 43, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56kxk"]
+atlas = ExtResource("18_jtb0i")
+region = Rect2(43, 0, 43, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3k8s8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sspy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56kxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mbco"]
+atlas = ExtResource("20_h37s3")
+region = Rect2(0, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krw1j"]
+atlas = ExtResource("20_h37s3")
+region = Rect2(67, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k26lj"]
+atlas = ExtResource("20_h37s3")
+region = Rect2(134, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyqw6"]
+atlas = ExtResource("21_j63bu")
+region = Rect2(0, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnhno"]
+atlas = ExtResource("21_j63bu")
+region = Rect2(67, 0, 67, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iwqv"]
+atlas = ExtResource("21_j63bu")
+region = Rect2(134, 0, 67, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqgrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mbco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krw1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k26lj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyqw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnhno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iwqv")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fap6f"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(0, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w6fu"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(103, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf5fs"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(206, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ty4q"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(309, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qocd"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(412, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36mok"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(515, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbh8k"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(618, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq5hd"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(721, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qbbo"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(824, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3w03"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(927, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxbig"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(1030, 0, 103, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlv6f"]
+atlas = ExtResource("19_gf5ax")
+region = Rect2(1133, 0, 103, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdk4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fap6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w6fu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf5fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ty4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qocd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36mok")
+}, {
+"duration": 13.0,
+"texture": SubResource("AtlasTexture_tbh8k")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_sq5hd")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7qbbo")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n3w03")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fxbig")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_dlv6f")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 10.0
+}]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lr1an")
 
@@ -1138,7 +1687,7 @@ script = ExtResource("6_437tt")
 material = SubResource("ShaderMaterial_bgvtj")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i6b7h")
-animation = &"shock"
+animation = &"shock_loop"
 autoplay = "idle"
 
 [node name="bg2" type="Sprite2D" parent="."]
@@ -1189,11 +1738,23 @@ theme_override_fonts/font = ExtResource("12_tf3lu")
 theme_override_font_sizes/font_size = 90
 
 [node name="Betaminus" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 0.380392, 1)
+z_index = 2
 position = Vector2(-1476, 2095)
 rotation = 3.14159
 scale = Vector2(5, -5)
 sprite_frames = SubResource("SpriteFrames_pmixg")
 autoplay = "default"
+
+[node name="Fireball" type="AnimatedSprite2D" parent="Betaminus"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(17.4, -0.800061)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_a3fgn")
+autoplay = "default"
+frame_progress = 0.14759
+offset = Vector2(4, 0)
 
 [node name="Fireball" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
@@ -1223,7 +1784,53 @@ autoplay = "spin"
 
 [node name="Fade" type="Sprite2D" parent="."]
 visible = false
+z_index = 3
 scale = Vector2(30000, 30000)
 texture = ExtResource("3_j2tpk")
+
+[node name="Your Goal" type="Label" parent="."]
+offset_left = -1992.0
+offset_top = 2491.0
+offset_right = 2008.0
+offset_bottom = 2895.0
+theme_override_colors/font_color = Color(0.658824, 0.901961, 0.113725, 1)
+theme_override_fonts/font = ExtResource("12_tf3lu")
+theme_override_font_sizes/font_size = 90
+horizontal_alignment = 1
+
+[node name="Neutron" type="AnimatedSprite2D" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_duiiy")
+position = Vector2(-1463, 3300)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_3k8s8")
+autoplay = "default"
+
+[node name="Deutron" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(-1234, 4290)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_oqgrt")
+animation = &"white"
+autoplay = "default"
+
+[node name="Adam" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(426, 4249)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_fdk4w")
+autoplay = "default"
+script = ExtResource("20_enujg")
+
+[node name="Take Revenge!" type="Label" parent="."]
+z_index = 10
+offset_left = -870.0
+offset_top = 3499.0
+offset_right = -290.0
+offset_bottom = 3623.0
+theme_override_colors/font_color = Color(0.658824, 0.901961, 0.113725, 1)
+theme_override_fonts/font = ExtResource("12_tf3lu")
+theme_override_font_sizes/font_size = 90
+text = "Take revenge"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

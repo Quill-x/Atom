@@ -15,6 +15,7 @@ var damagedScene = preload("res://scenes/damage_indicator.tscn")
 var damagedInstance = null
 
 func get_hit(pos):
+	Global.times_hit += 1
 	state = "Hit"
 	velocity.x = 0
 	velocity.y = 0

@@ -6,6 +6,10 @@ var isAlreadyDisplayingText = false
 var text_state = "Normal"
 var silent_characters = [".", "?", "!", ","," "]
 
+func _ready():
+	$Seaborg.visible = true
+	$AudioStreamPlayer.volume_db = -15
+
 func display_text(text,time,continuable):
 	isAlreadyDisplayingText = true
 	$SpeechBubble/Label.text = ""
@@ -107,13 +111,11 @@ new elements... ",6,false)
 I'm looking at
 the data, is
 our target
-moving out of
-the way of our
-particles?
-Fascinating,
-yet pretty
-annoying.",1,true)
-	if floor(GlobalTimer.time) ==  548 - GlobalTimer.timer_subtract:
+somehow moving
+out of the way
+of our
+particles?",1,true)
+	if floor(GlobalTimer.time) ==  552 - GlobalTimer.timer_subtract:
 		if !isAlreadyDisplayingText:
 			text_state = "Normal"
 			display_text("Hey nucleus,
@@ -123,10 +125,100 @@ pretty please?
 We don't have
 much time left
 before another
-group of re-
+team of re-
 searchers has
 to use this
 accelerator...",4,false)
+	if floor(GlobalTimer.time) ==  525 - GlobalTimer.timer_subtract:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("Hey Lawrence,
+we might have
+to turn this
+bad boy up,
+higher than
+the level that
+its supposed
+to be. I think
+we got a
+stubborn one...",3,false)
+	if floor(GlobalTimer.time) ==  468 - GlobalTimer.timer_subtract:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("Oh come on!!!
+Lawrence, we
+NEED to start
+sending all
+that we got if 
+we want to
+create a new
+element in
+time!",3,false)
+	if floor(GlobalTimer.time) ==  420 - GlobalTimer.timer_subtract:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("It would be easy
+they said.
+It's only one
+barn they said.
+Heck, the term
+even came from
+the phrase:
+\"Couldn't hit 
+the broad side
+of a barn\"!
+Haha...",1,true)
+	if floor(GlobalTimer.time) ==  412 - GlobalTimer.timer_subtract:
+		if !isAlreadyDisplayingText:
+			text_state = "Shaky"
+			display_text("HahaHAHA HA HA!
+WE ARE RUNNING
+OUT OF TIME
+SO PLEASE FOR
+THE LOVE OF GOD
+JUST. GET. HIT.
+ALREADY.",3,false)
+	if floor(GlobalTimer.time) ==  338 - GlobalTimer.timer_subtract:
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("Hahaha...
+I've had enough!
+Lawrence,
+release The
+Kraken.
+Hopefully we can
+get some sort
+of reaction in
+this time...",3,false)
+	if floor(GlobalTimer.time) ==  277 - GlobalTimer.timer_subtract:
+		$AudioStreamPlayer.volume_db = -999
+		$Seaborg.visible = false
+		$SpeechBubble/Label.text = ""
+		$Seaborg/AnimationPlayer.play("Appear")
+		await get_tree().create_timer(1.5).timeout
+		if !isAlreadyDisplayingText:
+			text_state = "Normal"
+			display_text("Congratulations!
+You made it
+through this
+bullet hell
+experience!
+Stats:
+Times Hit: " + str(Global.times_hit) + "
+Thanks for
+playing!",10,false)
 	if text_state == "Shaky" and isAlreadyDisplayingText:
 		$SpeechBubble/Label.position.x = RandomNumberGenerator.new().randi_range(-1,1)-54
 		$SpeechBubble/Label.position.y = RandomNumberGenerator.new().randi_range(-1,1)-115
