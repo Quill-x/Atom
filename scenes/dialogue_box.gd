@@ -91,12 +91,12 @@ to do!",3,false)
 		if !isAlreadyDisplayingText:
 			text_state = "Normal"
 			$Alert/AnimationPlayer.play("appear")
-			display_text("Eureka! We
+			display_text("Finally! We
 managed to hit
 something!
 But the wrong
 thing... We
-need to hit the
+have to hit the
 target nucleus
 in order to
 create these
@@ -142,9 +142,7 @@ bad boy up,
 higher than
 the level that
 its supposed
-to be. I think
-we got a
-stubborn one...",3,false)
+to be...",3,false)
 	if floor(GlobalTimer.time) ==  468 - GlobalTimer.timer_subtract:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")
@@ -170,7 +168,7 @@ time!",3,false)
 they said.
 It's only one
 barn they said.
-Heck, the term
+Heck, the unit
 even came from
 the phrase:
 \"Couldn't hit 
@@ -200,8 +198,8 @@ release The
 Kraken.
 Hopefully we can
 get some sort
-of reaction in
-this time...",3,false)
+of interaction 
+in this time!",3,false)
 	if floor(GlobalTimer.time) ==  277 - GlobalTimer.timer_subtract:
 		$AudioStreamPlayer.volume_db = -999
 		$Seaborg.visible = false
