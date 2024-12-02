@@ -154,7 +154,7 @@ func _process(delta):
 					deuteronInstance = deuteronScene.instantiate()
 				spawn_timer = RandomNumberGenerator.new().randf_range(0.6,0.75)
 	#Wave 11
-	if GlobalTimer.time < 490-GlobalTimer.timer_subtract and GlobalTimer.time > 465-GlobalTimer.timer_subtract: 
+	if GlobalTimer.time < 490-GlobalTimer.timer_subtract and GlobalTimer.time > 470-GlobalTimer.timer_subtract: 
 		Global.wave = 11
 		if spawn_timer <= 0:
 			var enemy = randi_range(0,12)
