@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://xcdl18tv5iks"]
+
+[ext_resource type="Script" path="res://scenes/entropy_orb.gd" id="1_o0ga2"]
+[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="2_yvqa0"]
+[ext_resource type="Texture2D" uid="uid://c65oodvymrpd7" path="res://images/entropy_orb.png" id="3_tidvi"]
+[ext_resource type="AudioStream" uid="uid://d2auawdrbf0xb" path="res://audio/ping_1.ogg" id="4_eeck0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vy6f"]
+shader = ExtResource("2_yvqa0")
+shader_parameter/line_color = Color(0, 0.881235, 0.228736, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vld81"]
+atlas = ExtResource("3_tidvi")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4h5n"]
+atlas = ExtResource("3_tidvi")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ugk"]
+atlas = ExtResource("3_tidvi")
+region = Rect2(52, 0, 26, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xegjj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vld81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4h5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ugk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eqa26"]
+radius = 43.0
+
+[node name="Entropy Orb" type="CharacterBody2D"]
+script = ExtResource("1_o0ga2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_2vy6f")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xegjj")
+autoplay = "default"
+frame_progress = 0.437613
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_eqa26")
+
+[node name="Ping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eeck0")
+volume_db = -15.0
+pitch_scale = 0.95
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

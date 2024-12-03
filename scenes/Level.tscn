@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=37 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bui45rc4a0h4v" path="res://images/alert.png" id="16_5h385"]
 [ext_resource type="Texture2D" uid="uid://3dimg5rb4o2q" path="res://images/tutorial.png" id="17_o0qr8"]
 [ext_resource type="Script" path="res://scenes/wave.gd" id="18_3amqj"]
+[ext_resource type="PackedScene" uid="uid://xcdl18tv5iks" path="res://scenes/entropy_orb.tscn" id="20_m2n7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
@@ -487,5 +488,29 @@ offset_bottom = -523.0
 theme_override_font_sizes/font_size = 26
 text = "Wave:"
 script = ExtResource("18_3amqj")
+
+[node name="Entropy Orb" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(75, -150)
+
+[node name="Entropy Orb2" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(392, 167)
+
+[node name="Entropy Orb3" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(-221, -182)
+
+[node name="Entropy Orb4" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(96, 182)
+
+[node name="Entropy Orb5" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(527, 214)
+
+[node name="Entropy Orb6" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(552, -150)
+
+[node name="Entropy Orb7" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(114, 342)
+
+[node name="Entropy Orb8" parent="." instance=ExtResource("20_m2n7g")]
+position = Vector2(553, -331)
 
 [connection signal="area_entered" from="Wall Detection" to="Wall Detection" method="_on_area_entered"]
