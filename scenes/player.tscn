@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://df3y3vmxrwya6"]
+[gd_scene load_steps=16 format=3 uid="uid://df3y3vmxrwya6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_xwvgi"]
 [ext_resource type="Texture2D" uid="uid://p3yhb6sl3iyc" path="res://images/player.png" id="2_bpjtl"]
@@ -15,6 +15,10 @@ shader = ExtResource("2_r60nu")
 shader_parameter/line_color = Color(0.170501, 0.434892, 1, 1)
 shader_parameter/line_thickness = 2.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikesi"]
+atlas = ExtResource("2_bpjtl")
+region = Rect2(150, 0, 75, 82)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6r3o"]
 atlas = ExtResource("2_bpjtl")
 region = Rect2(150, 0, 75, 82)
@@ -23,16 +27,24 @@ region = Rect2(150, 0, 75, 82)
 atlas = ExtResource("2_bpjtl")
 region = Rect2(225, 0, 75, 82)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3husf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p4tb"]
 atlas = ExtResource("2_bpjtl")
-region = Rect2(0, 0, 75, 68)
+region = Rect2(0, 0, 75, 82)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2mke"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j77n"]
 atlas = ExtResource("2_bpjtl")
-region = Rect2(75, 0, 75, 68)
+region = Rect2(75, 0, 75, 82)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wljmg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikesi")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.1,
 "texture": SubResource("AtlasTexture_u6r3o")
@@ -46,10 +58,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3husf")
+"texture": SubResource("AtlasTexture_4p4tb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q2mke")
+"texture": SubResource("AtlasTexture_0j77n")
 }],
 "loop": true,
 "name": &"idle",
@@ -69,6 +81,7 @@ shape = SubResource("RectangleShape2D_qihoo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_isb06")
+position = Vector2(-1, 15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wljmg")
 animation = &"idle"
@@ -101,5 +114,6 @@ horizontal_alignment = 1
 script = ExtResource("4_35h1i")
 
 [node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
 scale = Vector2(2, 2)
 texture = ExtResource("6_caob6")

@@ -6,7 +6,7 @@ const ACCELERATION = 500
 const FRICTION = 150
 const HIT_VELOCITY = 3000
 const HIT_SLOWDOWN_RATE = 0.9 
-const DASH_SPEED = 2200
+const DASH_SPEED = 4200
 const MAX_DASH_TIME = 12
 const DASH_COOLDOWN_TIME = 20
 
@@ -19,6 +19,9 @@ var damagedInstance = null
 var dash_timer = 0
 var dash_direction = 0
 var dash_cooldown = 0
+
+var particleScene = preload("res://scenes/dash_particle.tscn")
+var particleInstance = particleScene.instantiate()
 
 func get_hit(pos):
 	if !state == "Dash":
@@ -50,8 +53,8 @@ func get_hit(pos):
 func _physics_process(delta: float) -> void:
 	$Eyes.position.x = clamp(velocity.x/(maxspeed/4),-4,4)
 	$Eyes.position.y = clamp(velocity.y/(maxspeed/6),-6,6)
-	Global.player_x = position.x
-	Global.player_y = position.y
+	Global.player_x = $AnimatedSprite2D.position.x
+	Global.player_y = $AnimatedSprite2D.position.y
 	
 	if state == "Normal":
 		dash_cooldown -= 1
@@ -117,13 +120,21 @@ func _physics_process(delta: float) -> void:
 			velocity.y -= ACCELERATION/2
 		if Input.is_action_pressed("Down"):
 			velocity.y += ACCELERATION/2
-		velocity *= .98
+		velocity *= .82
+		$Eyes.visible = false
 		dash_timer -= 1
-
+		$AnimatedSprite2D.animation = "dash"
 		if velocity.length() > DASH_SPEED:
 			velocity = velocity.normalized() * DASH_SPEED
+		
+		particleInstance = particleScene.instantiate()
+		add_child(particleInstance)
+		
+	
 	rotation += rotational_velocity
+	
 	if state != "Dash":
+		$Eyes.visible = true
 		$AnimatedSprite2D.scale.y = 2 - abs(velocity.x / (MAXSPEED * 4)) + abs(velocity.y / (MAXSPEED * 5))
 		$AnimatedSprite2D.scale.x = 2 - abs(velocity.y / (MAXSPEED * 4)) + abs(velocity.x / (MAXSPEED * 8))
 	if dash_timer == 0 and state == "Dash":
