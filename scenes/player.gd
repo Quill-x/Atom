@@ -53,8 +53,8 @@ func get_hit(pos):
 func _physics_process(delta: float) -> void:
 	$Eyes.position.x = clamp(velocity.x/(maxspeed/4),-4,4)
 	$Eyes.position.y = clamp(velocity.y/(maxspeed/6),-6,6)
-	Global.player_x = $AnimatedSprite2D.position.x
-	Global.player_y = $AnimatedSprite2D.position.y
+	Global.player_x = position.x
+	Global.player_y = position.y
 	
 	if state == "Normal":
 		dash_cooldown -= 1
@@ -128,7 +128,7 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.normalized() * DASH_SPEED
 		
 		particleInstance = particleScene.instantiate()
-		add_child(particleInstance)
+		add_sibling(particleInstance)
 		
 	
 	rotation += rotational_velocity

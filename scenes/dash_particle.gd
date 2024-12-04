@@ -2,9 +2,10 @@ extends AnimatedSprite2D
 
 var oldPosition = Vector2(0,0)
 
-# Called when the node enters the scene tree for the first time.
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	position = Vector2(Global.player_x,Global.player_y)
 func _process(delta: float) -> void:
-	self_modulate.a -= .1
+	print(position,Vector2(Global.player_x,Global.player_y))
+	self_modulate.a = (self_modulate.a * .9) -.02
 	if self_modulate.a <= 0:
 		queue_free

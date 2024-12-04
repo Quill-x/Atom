@@ -19,6 +19,8 @@ animations = [{
 }]
 
 [node name="DashParticle" type="AnimatedSprite2D"]
+z_index = -2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7fo7l")
+offset = Vector2(-1, 8)
 script = ExtResource("2_dp6pp")

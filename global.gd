@@ -5,4 +5,4 @@ var player_y = 0
 var nextScene = null
 var wave = 0
 var times_hit = 0
-var entropy = 999999999999
+var entropy = 0
