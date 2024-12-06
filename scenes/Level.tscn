@@ -567,7 +567,6 @@ offset_right = -713.0
 offset_bottom = 440.0
 theme_override_fonts/font = ExtResource("11_crmgr")
 theme_override_font_sizes/font_size = 35
-text = "Super Duper Ultra Epic Fun Fact: Atoms are cool!"
 autowrap_mode = 3
 script = ExtResource("20_sc514")
 

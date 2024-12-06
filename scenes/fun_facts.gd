@@ -2,7 +2,7 @@ extends Label
 
 var fun_facts = ["Super Duper Ultra Epic Fun Fact: 
 	
-So many elements were discovered in Berekely in a row that they named an element after themseleves!",
+So many elements were discovered in Berkeley in a row that they named an element after themseleves!",
 "Super Duper Ultra Epic Fun Fact: 
 	
 Americium, one of the nan-made elements is used in smoke alarms! It makes the air inside the detector conduct electricity, and smoke blocks that conductivity.",
