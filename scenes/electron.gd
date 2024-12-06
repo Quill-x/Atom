@@ -39,6 +39,8 @@ func _on_chase_area_exited(area):
 		
 
 func _physics_process(delta):
+	if GlobalTimer.game_done:
+		queue_free()
 	Engine.set_physics_ticks_per_second(DisplayServer.screen_get_refresh_rate())
 	if State == "Normal":
 		pass

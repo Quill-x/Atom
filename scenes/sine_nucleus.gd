@@ -7,6 +7,8 @@ const ACCELERATION = 2
 var sineTime = 0
 
 func _physics_process(delta):
+	if GlobalTimer.game_done:
+		queue_free()
 	if position.x <= -1200:
 		queue_free()
 	velocity.y = -sin(sineTime)*100

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=41 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bui45rc4a0h4v" path="res://images/alert.png" id="16_5h385"]
 [ext_resource type="Texture2D" uid="uid://3dimg5rb4o2q" path="res://images/tutorial.png" id="17_o0qr8"]
 [ext_resource type="Script" path="res://scenes/wave.gd" id="18_3amqj"]
+[ext_resource type="Script" path="res://scenes/fun_facts.gd" id="20_sc514"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
@@ -127,6 +128,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-85, 272.5), Vector2(-85, 272.5), Vector2(85, 272.5)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Fun Fact:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 0.217638, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-300, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_5dqf0"]
 resource_name = "Disappear"
@@ -166,6 +179,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(2.37841, 1),
 "update": 0,
 "values": [Vector2(85, 272.5), Vector2(-85, 272.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Fun Fact:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.433333, 0.766667, 0.933333),
+"transitions": PackedFloat32Array(0.406126, 1, 0.217638),
+"update": 0,
+"values": [Vector2(-300, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_witj5"]
@@ -217,6 +242,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-99, 272.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Fun Fact:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4itc0"]
@@ -416,13 +453,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Control"]
+[node name="Score" type="AnimatedSprite2D" parent="Control"]
 z_index = 2
 position = Vector2(-866, -513)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xfrgs")
 autoplay = "default"
-frame_progress = 0.919043
+frame_progress = 0.0376205
 
 [node name="DialogueBox" type="Sprite2D" parent="Control"]
 z_index = 1
@@ -445,9 +482,18 @@ offset_right = 54.0
 offset_bottom = 91.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("11_crmgr")
+text = "\"Hey Lawrence,
+we might have
+to turn this
+accelerator's
+flow higher 
+than the level
+that its
+supposed to
+be..."
 
 [node name="Seaborg" type="AnimatedSprite2D" parent="Control/DialogueBox"]
-z_index = 1
+z_index = 10
 texture_filter = 1
 material = SubResource("ShaderMaterial_dfq0v")
 position = Vector2(87, -750)
@@ -507,9 +553,23 @@ offset_right = -707.0
 offset_bottom = -391.0
 theme_override_fonts/font = ExtResource("11_crmgr")
 theme_override_font_sizes/font_size = 60
-text = "Score:"
+text = "123"
 horizontal_alignment = 1
 script = ExtResource("10_laqys")
+
+[node name="Fun Fact" type="Sprite2D" parent="Control"]
+
+[node name="Fun Fact" type="Label" parent="Control/Fun Fact"]
+z_index = 2
+offset_left = -1011.0
+offset_top = -412.0
+offset_right = -713.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("11_crmgr")
+theme_override_font_sizes/font_size = 35
+text = "Super Duper Ultra Epic Fun Fact: Atoms are cool!"
+autowrap_mode = 3
+script = ExtResource("20_sc514")
 
 [node name="Wave" type="Label" parent="."]
 visible = false

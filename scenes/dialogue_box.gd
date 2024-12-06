@@ -52,7 +52,7 @@ START THE
 DEUTRON FLOW!
 LETS GET THIS
 CYCLOTRON UP
-AND RUNNIN'!!!",3,false)
+AND RUNNIN'!!!",4.5,false)
 	if floor(GlobalTimer.time) == 675 - GlobalTimer.timer_subtract:
 		$Tutorial/AnimationPlayer.play("tutorial")
 		
@@ -138,11 +138,12 @@ accelerator...",4,false)
 			display_text("Hey Lawrence,
 we might have
 to turn this
-bad boy up,
-higher than
-the level that
-its supposed
-to be...",3,false)
+accelerator's
+flow higher 
+than the level
+that its
+supposed to
+be...",3,false)
 	if floor(GlobalTimer.time) ==  468 - GlobalTimer.timer_subtract:
 		$SpeechBubble/Label.text = ""
 		$Seaborg/AnimationPlayer.play("Appear")

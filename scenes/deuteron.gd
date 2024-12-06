@@ -21,6 +21,8 @@ func _ready():
 	$Base.rotation = deg_to_rad(RandomNumberGenerator.new().randi_range(1,2) * 180)
 
 func _physics_process(delta: float) -> void:
+	if GlobalTimer.game_done:
+		queue_free()
 	rotation_timer -= delta
 	speed *= SPEED_INCREASE
 	velocity.x = -speed
