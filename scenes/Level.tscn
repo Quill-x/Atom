@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=40 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c75ahyx5egw0p" path="res://audio/funky_battle.ogg" id="5_h1f6n"]
 [ext_resource type="Script" path="res://scenes/timer_text.gd" id="7_kuq0e"]
 [ext_resource type="Texture2D" uid="uid://db0whoelo6fng" path="res://images/dialogueBox.png" id="8_bdob4"]
+[ext_resource type="Texture2D" uid="uid://dm00nhp7wi4fr" path="res://images/Score.png" id="8_xpf5p"]
 [ext_resource type="Texture2D" uid="uid://cv7vb55dq4gl3" path="res://images/seaborg.png" id="9_1fd7j"]
 [ext_resource type="Shader" path="res://scenes/outline.gdshader" id="9_chjej"]
 [ext_resource type="Texture2D" uid="uid://dn6lio3vtl1ke" path="res://images/speechbubble.png" id="9_f1csv"]
@@ -25,6 +26,28 @@ size = Vector2(103, 1320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpb66"]
 size = Vector2(159.186, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omnwc"]
+atlas = ExtResource("8_xpf5p")
+region = Rect2(0, 0, 141, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s07p1"]
+atlas = ExtResource("8_xpf5p")
+region = Rect2(141, 0, 141, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfrgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omnwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s07p1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfq0v"]
 shader = ExtResource("9_chjej")
@@ -393,6 +416,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Control"]
+z_index = 2
+position = Vector2(-866, -513)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xfrgs")
+autoplay = "default"
+frame_progress = 0.919043
+
 [node name="DialogueBox" type="Sprite2D" parent="Control"]
 z_index = 1
 position = Vector2(-1042, -573)
@@ -458,11 +489,11 @@ speed_scale = 0.7
 [node name="TimerText" type="Label" parent="Control"]
 z_index = 1
 layout_mode = 0
-offset_left = -1022.0
-offset_top = -565.0
-offset_right = -916.0
-offset_bottom = -510.0
-theme_override_font_sizes/font_size = 40
+offset_left = -682.0
+offset_top = -573.0
+offset_right = -576.0
+offset_bottom = -518.0
+theme_override_font_sizes/font_size = 15
 text = "Time:"
 script = ExtResource("7_kuq0e")
 
@@ -470,12 +501,14 @@ script = ExtResource("7_kuq0e")
 z_index = 4096
 z_as_relative = false
 layout_mode = 0
-offset_left = -1021.0
-offset_top = -519.0
-offset_right = -918.0
-offset_bottom = -470.0
-theme_override_font_sizes/font_size = 35
+offset_left = -1028.0
+offset_top = -474.0
+offset_right = -707.0
+offset_bottom = -391.0
+theme_override_fonts/font = ExtResource("11_crmgr")
+theme_override_font_sizes/font_size = 60
 text = "Score:"
+horizontal_alignment = 1
 script = ExtResource("10_laqys")
 
 [node name="Wave" type="Label" parent="."]
