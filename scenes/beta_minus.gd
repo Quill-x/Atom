@@ -17,6 +17,8 @@ func _ready():
 	position.x = RandomNumberGenerator.new().randf_range(-300, 300)
 
 func _physics_process(delta):
+	if GlobalTimer.game_done:
+		queue_free()
 	if !$Nucleus/AnimatedSprite2D.is_playing():
 		if electronInstance == null and !has_summoned_electron:
 			electronInstance = electronScene.instantiate()

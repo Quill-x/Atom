@@ -15,6 +15,8 @@ func bounce():
 	$Squish.play("squish")
 	
 func _physics_process(delta: float) -> void:
+	if GlobalTimer.game_done:
+		queue_free()
 	velocity.x = -BASE_SPEED
 	velocity.y = BASE_SPEED*2 * current_y_dir
 	move_and_slide()
