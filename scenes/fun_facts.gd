@@ -5,7 +5,7 @@ var fun_facts = ["Super Duper Ultra Epic Fun Fact:
 So many elements were discovered in Berkeley in a row that they named an element after themseleves!",
 "Super Duper Ultra Epic Fun Fact: 
 	
-Americium, one of the nan-made elements is used in smoke alarms! It makes the air inside the detector conduct electricity, and smoke blocks that conductivity.",
+Americium, one of the man-made elements is used in smoke alarms! It makes the air inside the detector conduct electricity, and smoke blocks that conductivity.",
 "Super Duper Ultra Epic Fun Fact: 
 	
 Albert Ghiorso, co-discoverer of twelve elements, supposedly held the world record for the longest ham radio. He was able to pick up radio from Ohio all the way in California.",
