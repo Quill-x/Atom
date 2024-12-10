@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cv2pjpyhbrn0a"]
+[gd_scene load_steps=46 format=3 uid="uid://cv2pjpyhbrn0a"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_ue7x2"]
 [ext_resource type="PackedScene" uid="uid://df3y3vmxrwya6" path="res://scenes/player.tscn" id="1_yqdih"]
@@ -21,6 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://3dimg5rb4o2q" path="res://images/tutorial.png" id="17_o0qr8"]
 [ext_resource type="Script" path="res://scenes/wave.gd" id="18_3amqj"]
 [ext_resource type="Script" path="res://scenes/fun_facts.gd" id="20_sc514"]
+[ext_resource type="Script" path="res://scenes/mobile.gd" id="21_2hpod"]
+[ext_resource type="Texture2D" uid="uid://dk56abysx672a" path="res://images/upArrow.png" id="21_7vnj1"]
+[ext_resource type="Texture2D" uid="uid://cyvcr8qk3cgly" path="res://images/downArrow.png" id="22_8fyay"]
+[ext_resource type="Texture2D" uid="uid://dnsoykp4r5c0l" path="res://images/leftArrow.png" id="23_7d53c"]
+[ext_resource type="Texture2D" uid="uid://b23shqo68cfk7" path="res://images/rightArrow.png" id="24_nao1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqigd"]
 size = Vector2(103, 1320)
@@ -569,6 +574,54 @@ theme_override_fonts/font = ExtResource("11_crmgr")
 theme_override_font_sizes/font_size = 35
 autowrap_mode = 3
 script = ExtResource("20_sc514")
+
+[node name="Mobile" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 86.0
+offset_right = 52.0
+offset_bottom = 126.0
+script = ExtResource("21_2hpod")
+
+[node name="UpArrow" type="Button" parent="Control/Mobile"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Mobile/UpArrow"]
+position = Vector2(-468, 218)
+scale = Vector2(2, 2)
+texture = ExtResource("21_7vnj1")
+
+[node name="DownArrow" type="Button" parent="Control/Mobile"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Mobile/DownArrow"]
+position = Vector2(-468, 349)
+scale = Vector2(2, 2)
+texture = ExtResource("22_8fyay")
+
+[node name="LeftArrow" type="Button" parent="Control/Mobile"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Mobile/LeftArrow"]
+position = Vector2(-622, 349)
+scale = Vector2(2, 2)
+texture = ExtResource("23_7d53c")
+
+[node name="RightArrow" type="Button" parent="Control/Mobile"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Mobile/RightArrow"]
+position = Vector2(-315, 349)
+scale = Vector2(2, 2)
+texture = ExtResource("24_nao1n")
 
 [node name="Wave" type="Label" parent="."]
 visible = false

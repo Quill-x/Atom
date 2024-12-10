@@ -162,5 +162,10 @@ put your game/browser
 in fullscreen mode!
 I am working on a fix!"
 
+[node name="Mobile Mode" type="Label" parent="."]
+offset_right = 255.0
+offset_bottom = 91.0
+text = "Mobile Mode:"
+
 [connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Credits" to="Sprite2D" method="_on_credits_pressed"]

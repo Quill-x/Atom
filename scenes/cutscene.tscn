@@ -1801,10 +1801,10 @@ scale = Vector2(1.84, 1.84)
 texture = ExtResource("11_x8igw")
 
 [node name="This is you" type="Label" parent="."]
-offset_left = -316.0
-offset_top = -509.0
-offset_right = 1095.0
-offset_bottom = 103.0
+offset_left = -1150.0
+offset_top = -515.0
+offset_right = 261.0
+offset_bottom = 97.0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.658824, 0.901961, 0.113725, 1)
 theme_override_fonts/font = ExtResource("12_tf3lu")
