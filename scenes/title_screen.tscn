@@ -151,5 +151,16 @@ offset_right = 1914.0
 offset_bottom = 83.0
 text = "Credits"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 1945.0
+offset_top = 24.0
+offset_right = 2150.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 40
+text = "If you can see this,
+put your game/browser
+in fullscreen mode!
+I am working on a fix!"
+
 [connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Credits" to="Sprite2D" method="_on_credits_pressed"]
